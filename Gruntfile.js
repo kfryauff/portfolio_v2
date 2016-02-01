@@ -48,6 +48,10 @@ module.exports = function (grunt) {
         files: ['test/spec/{,*/}*.js'],
         tasks: ['newer:jshint:test', 'newer:jscs:test', 'karma']
       },
+      css: {
+        files: ['<%= yeoman.app %>/styles/*.scss'],
+        tasks: ['sass']
+      },
       styles: {
         files: ['<%= yeoman.app %>/styles/{,*/}*.css'],
         tasks: ['newer:copy:styles', 'postcss']
@@ -168,6 +172,15 @@ module.exports = function (grunt) {
         }]
       },
       server: '.tmp'
+    },
+
+    // Takes care of sass compiling
+    sass: {
+      dist: {
+        files: {
+          '<%= yeoman.app %>/styles/main.css': '<%= yeoman.app %>/styles/main.scss'
+        }
+      }
     },
 
     // Add vendor prefixed styles
@@ -436,6 +449,7 @@ module.exports = function (grunt) {
       'clean:server',
       'wiredep',
       'concurrent:server',
+      'sass:dist',
       'postcss:server',
       'connect:livereload',
       'watch'
@@ -451,6 +465,7 @@ module.exports = function (grunt) {
     'clean:server',
     'wiredep',
     'concurrent:test',
+    'sass:dist',
     'postcss',
     'connect:test',
     'karma'
@@ -461,6 +476,7 @@ module.exports = function (grunt) {
     'wiredep',
     'useminPrepare',
     'concurrent:dist',
+    'sass:dist',
     'postcss',
     'ngtemplates',
     'concat',
