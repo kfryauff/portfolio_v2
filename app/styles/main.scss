@@ -4,6 +4,12 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/boots
 
 // endbower
 
+// TESTING ONLY
+.temp {
+  border: 2px red solid;
+}
+// END TESTING ONLY
+
 .browsehappy {
   margin: 0.2em 0;
   background: #ccc;
@@ -91,4 +97,13 @@ body {
   }
 }
 
+ul {
+  list-style-type: none;
+  text-decoration: none;
+  li {
+    min-height: 10px;
+  }
+}
+
 @import 'landing';
+@import 'featured_projects';

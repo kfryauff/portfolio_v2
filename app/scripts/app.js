@@ -8,6 +8,23 @@
  *
  * Main module of the application.
  */
+
+// value objects :
+var projectsValue = {
+  projects: [
+    {
+      image: '',
+      
+    }
+  ],
+  getFeatProj: function () {
+    return {
+
+    }
+  }
+
+};
+
 angular
   .module('portfolioApp', [
     'ngAnimate',
@@ -32,4 +49,5 @@ angular
       .otherwise({
         redirectTo: '/'
       });
-  });
+  })
+  .value('projects', projectsValue);
