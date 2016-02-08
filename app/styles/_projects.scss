@@ -7,8 +7,42 @@
 			overflow: hidden;
 			text-align: center;
 			padding: 10px 10px;
+			height: 200px;
+
 			img {
+				object-fit: cover;
+				-webkit-filter: grayscale(1);
+  				filter: grayscale(1);
+			}
+			.project-tag {
+				position: absolute;
+				background-color: $white_translucent;
+				@include bg-gradient-tb($white_translucent, $white_opaque);
+				bottom: -5px;
+				padding: $padding;
 				width: 100%;
+				text-align: left;
+				.project-title {
+					@extend .h5;
+				}
+				.project-description {
+					display: none;
+					height: 0;
+					@include transition(height, 5s linear);
+					@extend .h6;
+				}
+			}
+			&:hover {
+				img {
+					-webkit-filter: none;
+  					filter: none;
+				}
+				.project-tag {
+					.project-description {
+						display: block;
+						height: auto;
+					}
+				}
 			}
 		}
 	}

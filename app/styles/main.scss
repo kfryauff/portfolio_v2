@@ -2,6 +2,7 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/boots
 // bower:scss
 @import "../../bower_components/bootstrap-sass-official/assets/stylesheets/_bootstrap.scss";
 @import url(https://fonts.googleapis.com/css?family=Vollkorn:400,400italic,700);
+@import url(https://fonts.googleapis.com/css?family=Lato:400,100,300,700,300italic);
 
 // endbower
 
@@ -23,6 +24,11 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/boots
 
 body {
   padding: 0;
+  font-family: 'Lato', sans-serif;
+}
+
+h1, h2, h3 {
+  font-family: 'Vollkorn', serif;
 }
 
 /* Everything but the jumbotron gets side spacing for mobile first views */
@@ -109,9 +115,15 @@ ul {
   }
 }
 
-.section.odd {
-  background-color: rgb(239, 240, 241);
+.section {
+  padding-top: $spacing;
+  padding-bottom: $spacing;
+
+  &.odd {
+    background-color: rgb(239, 240, 241);
+  }
 }
+
 
 @import 'header';
 @import 'landing';

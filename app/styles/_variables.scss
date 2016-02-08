@@ -6,7 +6,11 @@ $light_text_color: rgb(255, 255, 255);
 $dark_text_color: rgb(0, 0, 0);
 
 $black_translucent: rgba(0, 0, 0, 0.5);
+$black_opaque: rgb(0, 0, 0);
+$white_translucent: rgba(255, 255, 255, 0.7);
+$white_opaque: rgb(255, 255, 255);
 
 $padding: 10px;
+$spacing: 20px;
 
-$white_border: 2px #FFFFFF solid;
+$white_border: 1.5px #FFFFFF solid;

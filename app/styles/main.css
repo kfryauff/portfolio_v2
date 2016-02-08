@@ -6,6 +6,7 @@
  */
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
 @import url(https://fonts.googleapis.com/css?family=Vollkorn:400,400italic,700);
+@import url(https://fonts.googleapis.com/css?family=Lato:400,100,300,700,300italic);
 html {
   font-family: sans-serif;
   -ms-text-size-adjust: 100%;
@@ -1152,7 +1153,7 @@ hr {
   cursor: pointer; }
 
 h1, h2, h3, h4, h5, h6,
-.h1, .h2, .h3, .h4, .h5, .h6 {
+.h1, .h2, .h3, .h4, .h5, .feature-projects ul li .project-tag .project-title, .projects ul li .project-tag .project-title, .h6, .feature-projects ul li .project-tag .project-description, .projects ul li .project-tag .project-description {
   font-family: inherit;
   font-weight: 500;
   line-height: 1.1;
@@ -1168,9 +1169,13 @@ h1, h2, h3, h4, h5, h6,
   .h1 .small, .h2 small,
   .h2 .small, .h3 small,
   .h3 .small, .h4 small,
-  .h4 .small, .h5 small,
-  .h5 .small, .h6 small,
-  .h6 .small {
+  .h4 .small, .h5 small, .feature-projects ul li .project-tag .project-title small, .projects ul li .project-tag .project-title small,
+  .h5 .small,
+  .feature-projects ul li .project-tag .project-title .small,
+  .projects ul li .project-tag .project-title .small, .h6 small, .feature-projects ul li .project-tag .project-description small, .projects ul li .project-tag .project-description small,
+  .h6 .small,
+  .feature-projects ul li .project-tag .project-description .small,
+  .projects ul li .project-tag .project-description .small {
     font-weight: normal;
     line-height: 1;
     color: #777777; }
@@ -1192,19 +1197,23 @@ h3, .h3 {
     font-size: 65%; }
 
 h4, .h4,
-h5, .h5,
-h6, .h6 {
+h5, .h5, .feature-projects ul li .project-tag .project-title, .projects ul li .project-tag .project-title,
+h6, .h6, .feature-projects ul li .project-tag .project-description, .projects ul li .project-tag .project-description {
   margin-top: 10px;
   margin-bottom: 10px; }
   h4 small,
   h4 .small, .h4 small,
   .h4 .small,
   h5 small,
-  h5 .small, .h5 small,
+  h5 .small, .h5 small, .feature-projects ul li .project-tag .project-title small, .projects ul li .project-tag .project-title small,
   .h5 .small,
+  .feature-projects ul li .project-tag .project-title .small,
+  .projects ul li .project-tag .project-title .small,
   h6 small,
-  h6 .small, .h6 small,
-  .h6 .small {
+  h6 .small, .h6 small, .feature-projects ul li .project-tag .project-description small, .projects ul li .project-tag .project-description small,
+  .h6 .small,
+  .feature-projects ul li .project-tag .project-description .small,
+  .projects ul li .project-tag .project-description .small {
     font-size: 75%; }
 
 h1, .h1 {
@@ -1219,10 +1228,10 @@ h3, .h3 {
 h4, .h4 {
   font-size: 18px; }
 
-h5, .h5 {
+h5, .h5, .feature-projects ul li .project-tag .project-title, .projects ul li .project-tag .project-title {
   font-size: 14px; }
 
-h6, .h6 {
+h6, .h6, .feature-projects ul li .project-tag .project-description, .projects ul li .project-tag .project-description {
   font-size: 12px; }
 
 p {
@@ -5820,7 +5829,11 @@ button.close {
   padding: 0.2em 0; }
 
 body {
-  padding: 0; }
+  padding: 0;
+  font-family: 'Lato', sans-serif; }
+
+h1, h2, h3 {
+  font-family: 'Vollkorn', serif; }
 
 /* Everything but the jumbotron gets side spacing for mobile first views */
 .header,
@@ -5887,22 +5900,38 @@ ul {
   ul li {
     min-height: 10px; }
 
-.section.odd {
-  background-color: #eff0f1; }
+.section {
+  padding-top: 20px;
+  padding-bottom: 20px; }
+  .section.odd {
+    background-color: #eff0f1; }
 
 .header {
   margin-bottom: 0px; }
   .header .navbar {
-    background-color: rgba(0, 0, 0, 0.8);
     background-image: -webkit-gradient(linear, left top, left bottom, from(black), to(rgba(0, 0, 0, 0.8)));
     background-image: -webkit-linear-gradient(top, black, rgba(0, 0, 0, 0.8));
     background-image: -moz-linear-gradient(top, black, rgba(0, 0, 0, 0.8));
     background-image: -ms-linear-gradient(top, black, rgba(0, 0, 0, 0.8));
     background-image: -o-linear-gradient(top, black, rgba(0, 0, 0, 0.8));
-    background-image: linear-gradient(top, black, rgba(0, 0, 0, 0.8));
+    background-image: linear-gradient(to bottom, black, rgba(0, 0, 0, 0.8));
     filter: progid:DXImageTransform.Microsoft.gradient(start-colourStr='black', end-colourStr='rgba(0, 0, 0, 0.8)'); }
+    .header .navbar .navbar-header a {
+      color: white; }
     .header .navbar .navbar-nav {
       float: right; }
+      .header .navbar .navbar-nav li a {
+        color: white;
+        font-size: 10px; }
+        .header .navbar .navbar-nav li a:hover {
+          color: black; }
+      .header .navbar .navbar-nav li.active a::after {
+        content: ' ';
+        margin-left: -5px;
+        margin-right: -5px;
+        height: 3px;
+        display: block;
+        border-bottom: 1px white solid; }
 
 .landing {
   background-image: url("../images/landing_bg.jpg");
@@ -5912,11 +5941,11 @@ ul {
   -o-background-size: cover;
   background-size: cover;
   background-color: #122553;
-  padding-top: 105px;
-  padding-bottom: 70px; }
+  padding-top: 140px;
+  padding-bottom: 105px; }
   .landing .card {
     background: rgba(0, 0, 0, 0.5);
-    border: 2px #FFFFFF solid;
+    border: 1.5px #FFFFFF solid;
     color: white;
     padding: 10px; }
     .landing .card .card-btn:first-of-type {
@@ -5925,7 +5954,7 @@ ul {
       padding-left: 10px; }
     .landing .card .card-btn .btn {
       background: rgba(0, 0, 0, 0.5);
-      border: 2px #FFFFFF solid;
+      border: 1.5px #FFFFFF solid;
       border-radius: 0;
       width: 100%; }
 
@@ -5935,8 +5964,39 @@ ul {
     display: inline;
     overflow: hidden;
     text-align: center;
-    padding: 10px 10px; }
+    padding: 10px 10px;
+    height: 200px; }
     .feature-projects ul li img, .projects ul li img {
-      width: 100%; }
+      object-fit: cover;
+      -webkit-filter: grayscale(1);
+      filter: grayscale(1); }
+    .feature-projects ul li .project-tag, .projects ul li .project-tag {
+      position: absolute;
+      background-color: rgba(255, 255, 255, 0.7);
+      background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0.7)), to(white));
+      background-image: -webkit-linear-gradient(top, rgba(255, 255, 255, 0.7), white);
+      background-image: -moz-linear-gradient(top, rgba(255, 255, 255, 0.7), white);
+      background-image: -ms-linear-gradient(top, rgba(255, 255, 255, 0.7), white);
+      background-image: -o-linear-gradient(top, rgba(255, 255, 255, 0.7), white);
+      background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.7), white);
+      filter: progid:DXImageTransform.Microsoft.gradient(start-colourStr='rgba(255, 255, 255, 0.7)', end-colourStr='white');
+      bottom: -5px;
+      padding: 10px;
+      width: 100%;
+      text-align: left; }
+      .feature-projects ul li .project-tag .project-description, .projects ul li .project-tag .project-description {
+        display: none;
+        height: 0;
+        -webkit-transition: height, 5s linear;
+        -moz-transition: height, 5s linear;
+        -ms-transition: height, 5s linear;
+        -o-transition: height, 5s linear;
+        transition: height, 5s linear; }
+    .feature-projects ul li:hover img, .projects ul li:hover img {
+      -webkit-filter: none;
+      filter: none; }
+    .feature-projects ul li:hover .project-tag .project-description, .projects ul li:hover .project-tag .project-description {
+      display: block;
+      height: auto; }
 
 /*# sourceMappingURL=main.css.map */

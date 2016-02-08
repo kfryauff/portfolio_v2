@@ -2,7 +2,7 @@
 <div id='home' class='landing section row'>
   <div class='container'>
     <!-- Crit Info -->
-    <div class='card col-sm-6 col-sm-offset-3'>
+    <div class='card col-sm-6 col-sm-offset-3 col-xs-10 col-xs-offset-1'>
       <div class='card-name col-xs-6'>
         K. Fryauff
       </div>
@@ -36,7 +36,7 @@
   <div class='container'>
   <div class='section-title'>Featured Projects</div>
   <ul class='row'>
-    <li class='col-xs-4 temp' ng-repeat='proj in projctrl.featProjects'>
+    <li class='col-sm-4' ng-repeat='proj in projctrl.featProjects'>
       <img src='{{proj.image}}'></img>
       <div class='project-tag'>
         <div class='project-title'>{{proj.title}}</div>
@@ -49,7 +49,7 @@
 </div>
 
 <!-- About Me Section -->
-<div id='about' class='about-me section row'>
+<div id='about' class='about-me section odd row'>
   <div class='container'>
   <div class='section-title'>About Me</div>
   <div class='profile col-sm-3'>
@@ -92,7 +92,7 @@
 </div>
 
 <!-- Projects Section -->
-<div id='projects' class='projects section row' ng-controller='ProjCtrl as projctrl'>
+<div id='projects' class='projects section odd row' ng-controller='ProjCtrl as projctrl'>
   <div class='container'>
   <form class='search-projects'>
     <input ng-model='searchValue' placeholder='Search Projects'></input>
@@ -100,7 +100,7 @@
   </form>
 
   <ul class='row'>
-    <li class='col-xs-4 temp' ng-repeat='proj in projctrl.projects | filter:searchValue'>
+    <li class='col-sm-4' ng-repeat='proj in projctrl.projects | filter:searchValue'>
       <img src='{{proj.image}}'></img>
       <div class='project-tag'>
         <div class='project-title'>{{proj.title}}</div>

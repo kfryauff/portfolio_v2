@@ -22,43 +22,74 @@
         title: 'Example Project 1',
         image: 'http://lorempixel.com/300/300/technics/1',
         description: 'This is a description of example project 1',
-        skills: []
+        skills: ['sk1', 'sk2']
       },
       {
         featured: true,
         title: 'Example Project 2',
         image: 'http://lorempixel.com/300/300/technics/2',
-        description: 'This is a description of example project 2'
+        description: 'This is a description of example project 2',
+        skills: ['sk1', 'sk2']
       },
       {
         featured: true,
         title: 'Example Project 3',
         image: 'http://lorempixel.com/300/300/technics/3',
-        description: 'This is a description of example project 3'
+        description: 'This is a description of example project 3',
+        skills: ['sk1', 'sk2']
       },
       {
         featured: false,
         title: 'Example Project 4',
         image: 'http://lorempixel.com/300/300/technics/4',
-        description: 'This is a description of example project 4'
+        description: 'This is a description of example project 4',
+        skills: ['sk1', 'sk2']
       },
       {
         featured: false,
         title: 'Example Project 5',
         image: 'http://lorempixel.com/300/300/technics/5',
-        description: 'This is a description of example project 5'
+        description: 'This is a description of example project 5',
+        skills: ['sk1', 'sk2']
       },
       {
         featured: false,
         title: 'Example Project 6',
         image: 'http://lorempixel.com/300/300/technics/6',
-        description: 'This is a description of example project 6'
+        description: 'This is a description of example project 6',
+        skills: ['sk1', 'sk2']
       },
       {
         featured: false,
         title: 'Example Project 7',
         image: 'http://lorempixel.com/300/300/technics/7',
-        description: 'This is a description of example project 7'
+        description: 'This is a description of example project 7',
+        skills: ['sk1', 'sk2']
+      },
+      {
+        featured: false,
+        title: 'Example Project 8',
+        image: 'http://lorempixel.com/300/300/technics/8',
+        description: 'This is a description of example project 8',
+        skills: ['sk1', 'sk2']
+      },
+      {
+        featured: false,
+        title: 'Example Project 9',
+        image: 'http://lorempixel.com/300/300/technics/9',
+        description: 'This is a description of example project 9'
+      },
+      {
+        featured: false,
+        title: 'Example Project 10',
+        image: 'http://lorempixel.com/300/300/technics/10',
+        description: 'This is a unique description of example project 10'
+      },
+      {
+        featured: false,
+        title: 'Example Project 11',
+        image: 'http://lorempixel.com/400/200/abstract/1/',
+        description: 'This is a another unique description of example project 11'
       }
     ],
     getFeatProj: function () {
@@ -80,31 +111,41 @@
   skillsValue = {
     skills: [
       {
-        skill_id: 'sk1',
+        skillID: 'sk1',
         skill: 'Skill #1',
         level: 8.5
       },
       {
-        skill_id: 'sk2',
+        skillID: 'sk2',
         skill: 'Skill #2',
         level: 8.5
       },
       {
-        skill_id: 'sk3',
+        skillID: 'sk3',
         skill: 'Skill #3',
         level: 8.5
       },
       {
-        skill_id: 'sk4',
+        skillID: 'sk4',
         skill: 'Skill #4',
         level: 8.5
       },
       {
-        skill_id: 'sk5',
+        skillID: 'sk5',
         skill: 'Skill #5',
         level: 8.5
       }
-    ]
+    ],
+    getSkill: function(skillID) {
+      var i,
+          skills = this.skills;
+      for(i = 0; i < skills.length; i += 1) {
+        if(skills[i].skillID === skillID) {
+          return i;
+        }
+      }
+      return -1;
+    }
   };
 
   angular

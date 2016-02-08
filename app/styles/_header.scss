@@ -3,11 +3,29 @@
 	margin-bottom: 0px;
 	.navbar {
 		@include bg-gradient-tb(rgba(0, 0, 0, 1.0), rgba(0, 0, 0, 0.8));
+		.navbar-header {
+			a { color: $white_opaque; }
+		}
 		.navbar-nav {
 			float: right;
-			ul {
-				li {
-					
+			
+			li {
+				a {
+					color: $white_opaque;
+					font-size: 10px;
+					&:hover {
+						color: black;
+					}
+				}
+				&.active {
+					a::after {
+						content: ' ';
+						margin-left: -5px;
+						margin-right: -5px;
+						height: 3px;
+						display: block;
+						border-bottom: 1px $white_opaque solid;
+					}
 				}
 			}
 		}
