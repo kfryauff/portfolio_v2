@@ -77,19 +77,22 @@
         featured: false,
         title: 'Example Project 9',
         image: 'http://lorempixel.com/300/300/technics/9',
-        description: 'This is a description of example project 9'
+        description: 'This is a description of example project 9',
+        skills: ['sk1', 'sk2']
       },
       {
         featured: false,
         title: 'Example Project 10',
         image: 'http://lorempixel.com/300/300/technics/10',
-        description: 'This is a unique description of example project 10'
+        description: 'This is a unique description of example project 10',
+        skills: ['sk1', 'sk2']
       },
       {
         featured: false,
         title: 'Example Project 11',
         image: 'http://lorempixel.com/400/200/abstract/1/',
-        description: 'This is a another unique description of example project 11'
+        description: 'This is a another unique description of example project 11',
+        skills: ['sk1', 'sk3']
       }
     ],
     getFeatProj: function () {

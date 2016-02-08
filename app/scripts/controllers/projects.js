@@ -11,14 +11,26 @@
 			this.projects = projects.projects;
 			this.featProjects = projects.getFeatProj();
 			this.skills = skills.skills;
+			var projCtrl = this;
+			this.projSearchComparator = function (actual, expected) {
+				var i, j, skill,
+					skillsArray = actual.skills,
+					skills = projCtrl.skills;
+				for(i = 0; i < actual.length; i += 1) {
+					if(actual[i].indexOf(expected) !== -1) {
+						return true;
+					}
+				}
+				for(i = 0; i < skillsArray.length; i += 1) {
+					skill = skills.getSkill(skillsArray[i]);
+					for(j = 0; j < skill.length; j += 1) {
+						if(skill[j].indexOf(expected) !== -1){
+							return true;
+						}
+					}
+				}
+				return false;
+			};
 		}]);
-		// .filter('projFilter', ['$filters', function($filters) {
-		// 	this.filters = $filters;
-		// 	return function(projects, search) {
-		// 		var filtered = [];
-
-		// 		return filtered;
-		// 	};
-		// }]);
 
 }());

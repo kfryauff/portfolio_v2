@@ -116,7 +116,7 @@
     </div>
 
     <ul class='row'>
-      <li class='col-sm-4' ng-repeat='proj in projctrl.projects | filter:searchValue'>
+      <li class='col-sm-4' ng-repeat='proj in projctrl.projects | filter:searchValue:projSearchComparator'>
         <img src='{{proj.image}}'></img>
         <div class='project-tag'>
           <div class='project-title'>{{proj.title}}</div>
