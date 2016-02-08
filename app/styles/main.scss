@@ -1,8 +1,12 @@
 $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/bootstrap/";
 // bower:scss
 @import "../../bower_components/bootstrap-sass-official/assets/stylesheets/_bootstrap.scss";
+@import url(https://fonts.googleapis.com/css?family=Vollkorn:400,400italic,700);
 
 // endbower
+
+@import "variables";
+@import "lib";
 
 // TESTING ONLY
 .temp {
@@ -31,8 +35,8 @@ body {
 
 /* Custom page header */
 .header {
-  border-bottom: 1px solid #e5e5e5;
-  margin-bottom: 10px;
+  // border-bottom: 1px solid #e5e5e5;
+  margin-bottom: -$header_height;
 
   /* Make the masthead heading the same height as the navigation */
   h3 {
@@ -105,5 +109,10 @@ ul {
   }
 }
 
+.section {
+
+}
+
+@import 'header';
 @import 'landing';
 @import 'featured_projects';

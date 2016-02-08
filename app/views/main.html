@@ -1,64 +1,75 @@
 <!-- Landing Section -->
-<div class='landing section row'>
-  <!-- Crit Info -->
-  <div class='card col-sm-6 col-sm-offset-3 temp'>
-    <div class='card-name col-xs-6'>
-      k.f
-    </div>
-    <div class='card-info col-xs-6'>
-      <span class='col-xs-12'>email@mail.com</span>
-      <span class='col-xs-12'>000-000-0000</span>
-      <span class='col-xs-12'>Address 1</span>
-      <span class='col-xs-12'>address 2</span>
-    </div>
-  
-    <!-- Tagline -->
-    <div class='col-xs-12'>
-      Developer | Designer
-    </div>
-
-    <!-- Call to Action Btns -->
-    <div class='row'>
-      <div class='col-xs-6'>
-        <div class='btn'>View Projects</div>
+<div id='home' class='landing section row'>
+  <div class='container'>
+    <!-- Crit Info -->
+    <div class='card col-sm-6 col-sm-offset-3'>
+      <div class='card-name col-xs-6'>
+        k.f
       </div>
-      <div class='col-xs-6'>
-        <div class='btn'>Contact Me</div>
+      <div class='card-info col-xs-6'>
+        <span class='col-xs-12'>email@mail.com</span>
+        <span class='col-xs-12'>000-000-0000</span>
+        <span class='col-xs-12'>Address 1</span>
+        <span class='col-xs-12'>address 2</span>
+      </div>
+    
+      <!-- Tagline -->
+      <div class='col-xs-12'>
+        Developer | Designer
+      </div>
+
+      <!-- Call to Action Btns -->
+      <div class='row'>
+        <div class='col-xs-6'>
+          <div class='btn'>View Projects</div>
+        </div>
+        <div class='col-xs-6'>
+          <div class='btn'>Contact Me</div>
+        </div>
       </div>
     </div>
   </div>
 </div>
 
 <!-- Feature Projects Section -->
-<div class='feature-projects section row'>
+<div id='featured' class='feature-projects section row' ng-controller='ProjCtrl as projctrl'>
+  <div class='container'>
   <div class='section-title'>Featured Projects</div>
   <ul class='row'>
-    <li class='col-sm-4'>
-      <img src='http://lorempixel.com/300/300/technics/1'></img>
-    </li>
-    <li class='col-sm-4'>
-      <img src='http://lorempixel.com/300/300/technics/2'></img>
-    </li>
-    <li class='col-sm-4'>
-      <img src='http://lorempixel.com/300/300/technics/3'></img>
+    <li class='col-xs-4 temp' ng-repeat='proj in projctrl.featProjects'>
+      <img src='{{proj.image}}'></img>
+      <div class='project-tag'>
+        <div class='project-title'>{{proj.title}}</div>
+        <div class='project-description'>{{proj.description}}</div>
+      </div>
     </li>
   </ul>
+  <div class='view-more'></div>
+</div>
 </div>
 
 <!-- About Me Section -->
-<div class='about-me section row'>
+<div id='about' class='about-me section row'>
+  <div class='container'>
   <div class='section-title'>About Me</div>
-  <div class='profile col-md-2'>
+  <div class='profile col-sm-3'>
 
   </div>
-  <div class='content col-md-10'>
-
+  <div class='content col-sm-9'>
+    <p>
+      lorem ipsum stuff here and there lorem ipsum stuff here and there. lorem ipsum stuff here and there lorem ipsum stuff here and there lorem ipsum stuff here and there lorem ipsum stuff here and there. Creating your own services in AngularJS can be confusing. What are the differences between an AngularJS module's Service, Provider, Factory, and Value functions? This lesson shows how Angular's value function allows you to use register a plain JavaScript object as an AngularJS service.
+    </p>
+    <p>
+      JS can be confusing. What are the differences between an AngularJS module's Service, Prov. lorem ipsum stuff here and there lorem ipsum stuff here and there. lorem ipsum stuff here and there lorem ipsum stuff here and there lorem ipsum stuff here and there lorem ipsum stuff here and there. Creating your own services in Angularider, Factory, and Value functions? This lesson shows how Angular's value function allows you to use register a plain JavaScript object as an AngularJS service.
+    </p>
   </div>
+</div>
 </div>
 
 <!-- Skills & Resume Section -->
 <div class='skills-resume section row'>
-  <div class='skills'>
+  <div class='container'>
+  <div id='skills' class='skills col-sm-9'>
     <div class='section-title'>My Skills</div>
     <ul>
       <li>Skill 1</li>
@@ -69,7 +80,7 @@
       <li>Skill 1</li>
     </ul>
   </div>
-  <div class='resume'>
+  <div id='resume' class='resume col-sm-3'>
     <div class='section-title'>My Resume</div>
     <button>View Resume</button>
     <div class='download-instruct'>
@@ -78,23 +89,24 @@
     </div>
   </div>
 </div>
+</div>
 
 <!-- Projects Section -->
-<div class='projects section row'>
+<div id='projects' class='projects section row' ng-controller='ProjCtrl as projctrl'>
+  <div class='container'>
   <form class='search-projects'>
-    <input placeholder='Search Projects'></input>
+    <input ng-model='searchValue' placeholder='Search Projects'></input>
     <button>Search</button>
   </form>
 
-  <ul>
-    <li>
-      <img src=""></img>
-    </li>
-    <li>
-      <img src=""></img>
-    </li>
-    <li>
-      <img src=""></img>
+  <ul class='row'>
+    <li class='col-xs-4 temp' ng-repeat='proj in projctrl.projects | filter:searchValue'>
+      <img src='{{proj.image}}'></img>
+      <div class='project-tag'>
+        <div class='project-title'>{{proj.title}}</div>
+        <div class='project-description'>{{proj.description}}</div>
+      </div>
     </li>
   </ul>
+</div>
 </div>

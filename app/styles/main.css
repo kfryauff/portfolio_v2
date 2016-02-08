@@ -5,6 +5,7 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
+@import url(https://fonts.googleapis.com/css?family=Vollkorn:400,400italic,700);
 html {
   font-family: sans-serif;
   -ms-text-size-adjust: 100%;
@@ -5830,8 +5831,7 @@ body {
 
 /* Custom page header */
 .header {
-  border-bottom: 1px solid #e5e5e5;
-  margin-bottom: 10px;
+  margin-bottom: -70px;
   /* Make the masthead heading the same height as the navigation */ }
   .header h3 {
     margin-top: 0;
@@ -5887,8 +5887,24 @@ ul {
   ul li {
     min-height: 10px; }
 
+.header {
+  margin-bottom: 0px; }
+  .header .navbar {
+    background-color: rgba(0, 0, 0, 0.8); }
+    .header .navbar .navbar-nav {
+      float: right; }
+
 .landing {
-  background-image: url("../images/landing-bg.jpg"); }
+  background-image: url("../images/landing_bg.jpg");
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  background-color: #122553;
+  padding-top: 105px;
+  padding-bottom: 70px; }
+  .landing .card {
+    border: 2px #FFFFFF solid; }
 
 .feature-projects ul {
   padding: 0; }

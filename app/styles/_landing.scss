@@ -1,7 +1,12 @@
 .landing {
-	background-image: url('../images/landing-bg.jpg');
+	background-image: url('../images/landing_bg.jpg');// no-repeat center center fixed; 
+	@include background-size(cover);
+	background-color: rgb(18, 37, 83);
+	padding-top: 1.5 * $header_height;
+	padding-bottom: $header_height;
 
 	.card {
+		border: 2px #FFFFFF solid;
 		.btn {
 			
 		}
