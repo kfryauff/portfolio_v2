@@ -118,13 +118,20 @@ ul {
 .section {
   padding-top: $spacing;
   padding-bottom: $spacing;
-
+  .section-title {
+    @extend .h3;
+    padding-bottom: $padding;
+  }
   &.odd {
     background-color: rgb(239, 240, 241);
+    .section-title {
+      text-align: center;
+    }
   }
 }
 
 
 @import 'header';
 @import 'landing';
+@import 'about';
 @import 'projects';

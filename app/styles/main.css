@@ -1153,7 +1153,7 @@ hr {
   cursor: pointer; }
 
 h1, h2, h3, h4, h5, h6,
-.h1, .h2, .h3, .h4, .h5, .feature-projects ul li .project-tag .project-title, .projects ul li .project-tag .project-title, .h6, .feature-projects ul li .project-tag .project-description, .projects ul li .project-tag .project-description {
+.h1, .h2, .h3, .section .section-title, .h4, .h5, .feature-projects ul li .project-tag .project-title, .projects ul li .project-tag .project-title, .h6, .feature-projects ul li .project-tag .project-description, .projects ul li .project-tag .project-description {
   font-family: inherit;
   font-weight: 500;
   line-height: 1.1;
@@ -1167,8 +1167,9 @@ h1, h2, h3, h4, h5, h6,
   h6 .small,
   .h1 small,
   .h1 .small, .h2 small,
-  .h2 .small, .h3 small,
-  .h3 .small, .h4 small,
+  .h2 .small, .h3 small, .section .section-title small,
+  .h3 .small,
+  .section .section-title .small, .h4 small,
   .h4 .small, .h5 small, .feature-projects ul li .project-tag .project-title small, .projects ul li .project-tag .project-title small,
   .h5 .small,
   .feature-projects ul li .project-tag .project-title .small,
@@ -1182,7 +1183,7 @@ h1, h2, h3, h4, h5, h6,
 
 h1, .h1,
 h2, .h2,
-h3, .h3 {
+h3, .h3, .section .section-title {
   margin-top: 20px;
   margin-bottom: 10px; }
   h1 small,
@@ -1192,8 +1193,9 @@ h3, .h3 {
   h2 .small, .h2 small,
   .h2 .small,
   h3 small,
-  h3 .small, .h3 small,
-  .h3 .small {
+  h3 .small, .h3 small, .section .section-title small,
+  .h3 .small,
+  .section .section-title .small {
     font-size: 65%; }
 
 h4, .h4,
@@ -1222,7 +1224,7 @@ h1, .h1 {
 h2, .h2 {
   font-size: 30px; }
 
-h3, .h3 {
+h3, .h3, .section .section-title {
   font-size: 24px; }
 
 h4, .h4 {
@@ -5903,8 +5905,12 @@ ul {
 .section {
   padding-top: 20px;
   padding-bottom: 20px; }
+  .section .section-title {
+    padding-bottom: 10px; }
   .section.odd {
     background-color: #eff0f1; }
+    .section.odd .section-title {
+      text-align: center; }
 
 .header {
   margin-bottom: 0px; }
@@ -5945,7 +5951,7 @@ ul {
   padding-bottom: 105px; }
   .landing .card {
     background: rgba(0, 0, 0, 0.5);
-    border: 1.5px #FFFFFF solid;
+    border: 2px #FFFFFF solid;
     color: white;
     padding: 10px; }
     .landing .card .card-btn:first-of-type {
@@ -5954,9 +5960,32 @@ ul {
       padding-left: 10px; }
     .landing .card .card-btn .btn {
       background: rgba(0, 0, 0, 0.5);
-      border: 1.5px #FFFFFF solid;
+      border: 2px #FFFFFF solid;
       border-radius: 0;
       width: 100%; }
+
+.about-me .profile {
+  background-color: #242526;
+  color: #8b8c8e;
+  text-align: center;
+  padding: 20px;
+  font-size: 12px; }
+  .about-me .profile .profile-pic {
+    height: 94px;
+    width: 94px;
+    border-radius: 100px;
+    border: 2px #FFFFFF solid;
+    margin: auto;
+    margin-bottom: 10px; }
+  .about-me .profile .profile-name {
+    color: white; }
+  .about-me .profile .profile-socmedia {
+    min-height: 40px; }
+    .about-me .profile .profile-socmedia a {
+      height: 40px;
+      width: 40px;
+      border-radius: 40px;
+      border: 2px #FFFFFF solid; }
 
 .feature-projects ul, .projects ul {
   padding: 0; }
@@ -5965,7 +5994,9 @@ ul {
     overflow: hidden;
     text-align: center;
     padding: 10px 10px;
-    height: 200px; }
+    height: 200px;
+    background-color: rgba(0, 0, 0, 0.5);
+    border: 2px black solid; }
     .feature-projects ul li img, .projects ul li img {
       object-fit: cover;
       -webkit-filter: grayscale(1);
