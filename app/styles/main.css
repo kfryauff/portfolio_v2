@@ -5994,9 +5994,7 @@ ul {
     overflow: hidden;
     text-align: center;
     padding: 10px 10px;
-    height: 200px;
-    background-color: rgba(0, 0, 0, 0.5);
-    border: 2px black solid; }
+    height: 200px; }
     .feature-projects ul li img, .projects ul li img {
       object-fit: cover;
       -webkit-filter: grayscale(1);
