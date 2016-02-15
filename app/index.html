@@ -39,18 +39,18 @@
           <div class="collapse navbar-collapse" id="js-navbar-collapse">
 
             <ul class="nav navbar-nav" ng-controller='headerCtrl'>
-              <li class="active"><a href="#/">Home</a></li>
-              <li><a ng-href="" ng-click='gotoAnchor("about")'>About</a></li>
-              <li><a ng-href="" ng-click='gotoAnchor("skills")'>Skills</a></li>
-              <li><a ng-href="" ng-click='gotoAnchor("projects")'>Projects</a></li>
-              <li><a ng-href="" ng-click='gotoAnchor("resume")'>Resume</a></li>
+              <li du-smooth-scroll="top" du-scrollspy><a href='#top'>Home</a></li>
+              <li du-smooth-scroll="about" du-scrollspy><a href='#about'>About</a></li>
+              <li du-smooth-scroll="skills" du-scrollspy><a href='#skills'>Skills</a></li>
+              <li du-smooth-scroll="projects" du-scrollspy><a href='#projects'>Projects</a></li>
+              <li du-smooth-scroll="resume" du-scrollspy><a href='#resume'>Resume</a></li>
             </ul>
           </div>
         </div>
       </div>
     </div>
 
-    <div class="container-fluid">
+    <div id="top" class="container-fluid">
       <div ng-view=""></div>
     </div>
 

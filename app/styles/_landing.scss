@@ -5,30 +5,65 @@
 	@include background-size(cover);
 	background-color: rgb(18, 37, 83);
 	padding-top: 2 * $header_height;
-	padding-bottom: 1.5 * $header_height;
+	padding-bottom: 2 * $header_height;
 
 	.card {
 		background: $black_translucent;
 		border: $white_border;
 		color: $light_text_color;
-		padding: $padding;
-		.card-name {
-
+		padding: $padding $padding/2;
+		.card-top {
+			position: relative;
+			padding: ($padding * 2) ($padding * 1.5) 0;
+			.card-name {
+				@extend h1;
+				margin-bottom: -$padding/2;
+				letter-spacing: 1px;
+				position: absolute;
+				bottom: 0;
+			}
+			.card-info {
+				font-size: 10px;
+				font-weight: 300;
+				text-align: right;
+				span {
+					padding: 0;
+				}
+			}
 		}
-		.card-btn {
-			&:first-of-type {
-				padding-right: $padding;
+		.card-tagline {
+			hr {
+				margin-top: 0;
+				margin-bottom: 2px;
 			}
-			&:nth-of-type(2) {
-				padding-left: $padding;
-			}
-			.btn {
-				background: $black_translucent;
-				border: $white_border;
-				border-radius: 0;
-				width: 100%;
+			font-size: 9px;
+			font-weight: 300;
+			padding-bottom: 2.5 * $padding;
+		}
+		.card-action-btns {
+			padding: $padding ($padding * 1.5);
+			.card-btn {
+				&:first-of-type {
+					padding-right: $padding;
+				}
+				&:nth-of-type(2) {
+					padding-left: $padding;
+				}
+				.btn {
+					background: $black_translucent;
+					border: $white_border;
+					border-radius: 0;
+					width: 100%;
+					font-size: 11px;
+					font-weight: 300;
+					&:hover {
+						color: $white_translucent;
+						letter-spacing: 1px;
+						background-color: $warm_gray_translucent;
+						// border-color: $white_translucent;
+					}
+				}
 			}
 		}
-		
 	}
 }

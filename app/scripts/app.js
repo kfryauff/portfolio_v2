@@ -151,51 +151,54 @@
     }
   };
 
-  angular
-    .module('portfolioApp', [
-      'ngAnimate',
-      'ngCookies',
-      'ngResource',
-      'ngRoute',
-      'ngSanitize',
-      'ngTouch' //,
-      // 'duScroll'
-    ])
-    .config(function ($routeProvider) {
-      $routeProvider
-        .when('/', {
-          templateUrl: 'views/main.html',
-          controller: 'MainCtrl',
-          controllerAs: 'main'
-        })
-        // .when('/about', {
-        //   templateUrl: 'views/about.html',
-        //   controller: 'AboutCtrl',
-        //   controllerAs: 'about'
-        // })
-        .otherwise({
-          redirectTo: '/'
-        });
-    })
-    .value('projects', projectsValue)
-    .value('skills', skillsValue)
-    .run(['$anchorScroll', function($anchorScroll) {
-      $anchorScroll.yOffset = 50;   // always scroll by 50 extra pixels
-    }])
-    .controller('headerCtrl', ['$anchorScroll', '$location', '$scope',
-      function ($anchorScroll, $location, $scope) {
-        $scope.gotoAnchor = function(newHash) {
-          if ($location.hash() !== newHash) {
-            // set the $location.hash to `newHash` and
-            // $anchorScroll will automatically scroll to it
-            $location.hash(newHash);
-          } else {
-            // call $anchorScroll() explicitly,
-            // since $location.hash hasn't changed
-            $anchorScroll();
-          }
-        };
-      }
-    ]);
+
+angular
+  .module('portfolioApp', [
+    'ngAnimate',
+    'ngCookies',
+    'ngResource',
+    'ngRoute',
+    'ngSanitize',
+    'ngTouch',
+    'duScroll'
+  ])
+  .config(function ($routeProvider) {
+    $routeProvider
+      .when('/', {
+        templateUrl: 'views/main.html',
+        controller: 'MainCtrl',
+        controllerAs: 'main'
+      })
+      // .when('/about', {
+      //   templateUrl: 'views/about.html',
+      //   controller: 'AboutCtrl',
+      //   controllerAs: 'about'
+      // })
+      .otherwise({
+        redirectTo: '/'
+      });
+  })
+  .value('projects', projectsValue)
+  .value('skills', skillsValue)
+  .value('duScrollDuration', 2000)
+  .value('duScrollOffset', 30)
+  .run(['$anchorScroll', function($anchorScroll) {
+    $anchorScroll.yOffset = 50;   // always scroll by 50 extra pixels
+  }])
+  .controller('headerCtrl', ['$anchorScroll', '$location', '$scope',
+    function ($anchorScroll, $location, $scope) {
+      $scope.gotoAnchor = function(newHash) {
+        if ($location.hash() !== newHash) {
+          // set the $location.hash to `newHash` and
+          // $anchorScroll will automatically scroll to it
+          $location.hash(newHash);
+        } else {
+          // call $anchorScroll() explicitly,
+          // since $location.hash hasn't changed
+          $anchorScroll();
+        }
+      };
+    }
+  ]);
 
 }());

@@ -4,7 +4,7 @@
 		background-color: $warm-gray;
 		color: $light-gray;
 		text-align: center;
-		padding: $spacing;
+		padding: $spacing $spacing $padding;
 		font-size: $med_font_size;
 		.profile-pic {
 			height: 94px;
@@ -16,15 +16,27 @@
 		}
 		.profile-name {
 			color: $white_opaque;
+			padding: $padding $padding 0;
+		}
+		.profile-tagline {
+			padding: 0 $padding $padding;
 		}
 		.profile-socmedia {
-			min-height: 40px;
-			a {
+			.socmedia-link {
 				height: 40px;
 				width: 40px;
 				border-radius: 40px;
 				border: $white_border;
+				display: inline-block;
+				margin: $margin/2;
 			}
+		}
+		hr {
+			border-top: $light-gray 1px solid;
+			margin-top: $margin;
+			margin-bottom: $margin;
+			margin-left: -$spacing;
+			margin-right: -$spacing;
 		}
 	}
 }

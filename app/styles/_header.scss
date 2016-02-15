@@ -5,6 +5,12 @@
 		@include bg-gradient-tb(rgba(0, 0, 0, 1.0), rgba(0, 0, 0, 0.8));
 		.navbar-header {
 			a { color: $white_opaque; }
+			.navbar-brand {
+				text-transform: uppercase;
+				font-size: 10px;
+				font-family: 'Lato';
+				letter-spacing: 1px;
+			}
 		}
 		.navbar-nav {
 			float: right;
@@ -13,8 +19,16 @@
 				a {
 					color: $white_opaque;
 					font-size: 10px;
-					&:hover {
-						color: black;
+					&:hover, &:focus {
+						background-color: transparent;
+						a::after {
+							content: ' ';
+							margin-left: -5px;
+							margin-right: -5px;
+							height: 3px;
+							display: block;
+							border-bottom: 2px $white_translucent solid;
+						}
 					}
 				}
 				&.active {

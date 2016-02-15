@@ -62,7 +62,7 @@ strong {
 dfn {
   font-style: italic; }
 
-h1 {
+h1, .landing .card .card-top .card-name {
   font-size: 2em;
   margin: 0.67em 0; }
 
@@ -1152,14 +1152,15 @@ hr {
 [role="button"] {
   cursor: pointer; }
 
-h1, h2, h3, h4, h5, h6,
+h1, .landing .card .card-top .card-name, h2, h3, h4, h5, h6,
 .h1, .h2, .h3, .section .section-title, .h4, .h5, .feature-projects ul li .project-tag .project-title, .projects ul li .project-tag .project-title, .h6, .feature-projects ul li .project-tag .project-description, .projects ul li .project-tag .project-description {
   font-family: inherit;
   font-weight: 500;
   line-height: 1.1;
   color: inherit; }
-  h1 small,
-  h1 .small, h2 small,
+  h1 small, .landing .card .card-top .card-name small,
+  h1 .small,
+  .landing .card .card-top .card-name .small, h2 small,
   h2 .small, h3 small,
   h3 .small, h4 small,
   h4 .small, h5 small,
@@ -1181,13 +1182,14 @@ h1, h2, h3, h4, h5, h6,
     line-height: 1;
     color: #777777; }
 
-h1, .h1,
+h1, .landing .card .card-top .card-name, .h1,
 h2, .h2,
 h3, .h3, .section .section-title {
   margin-top: 20px;
   margin-bottom: 10px; }
-  h1 small,
-  h1 .small, .h1 small,
+  h1 small, .landing .card .card-top .card-name small,
+  h1 .small,
+  .landing .card .card-top .card-name .small, .h1 small,
   .h1 .small,
   h2 small,
   h2 .small, .h2 small,
@@ -1218,7 +1220,7 @@ h6, .h6, .feature-projects ul li .project-tag .project-description, .projects ul
   .projects ul li .project-tag .project-description .small {
     font-size: 75%; }
 
-h1, .h1 {
+h1, .landing .card .card-top .card-name, .h1 {
   font-size: 36px; }
 
 h2, .h2 {
@@ -4311,7 +4313,7 @@ a.badge:hover, a.badge:focus {
   margin-bottom: 30px;
   color: inherit;
   background-color: #eeeeee; }
-  .jumbotron h1,
+  .jumbotron h1, .jumbotron .landing .card .card-top .card-name, .landing .card .card-top .jumbotron .card-name,
   .jumbotron .h1 {
     color: inherit; }
   .jumbotron p {
@@ -4333,7 +4335,7 @@ a.badge:hover, a.badge:focus {
       .container .jumbotron, .container-fluid .jumbotron {
         padding-left: 60px;
         padding-right: 60px; }
-      .jumbotron h1,
+      .jumbotron h1, .jumbotron .landing .card .card-top .card-name, .landing .card .card-top .jumbotron .card-name,
       .jumbotron .h1 {
         font-size: 63px; } }
 
@@ -5834,7 +5836,7 @@ body {
   padding: 0;
   font-family: 'Lato', sans-serif; }
 
-h1, h2, h3 {
+h1, .landing .card .card-top .card-name, h2, h3 {
   font-family: 'Vollkorn', serif; }
 
 /* Everything but the jumbotron gets side spacing for mobile first views */
@@ -5924,13 +5926,25 @@ ul {
     filter: progid:DXImageTransform.Microsoft.gradient(start-colourStr='black', end-colourStr='rgba(0, 0, 0, 0.8)'); }
     .header .navbar .navbar-header a {
       color: white; }
+    .header .navbar .navbar-header .navbar-brand {
+      text-transform: uppercase;
+      font-size: 10px;
+      font-family: 'Lato';
+      letter-spacing: 1px; }
     .header .navbar .navbar-nav {
       float: right; }
       .header .navbar .navbar-nav li a {
         color: white;
         font-size: 10px; }
-        .header .navbar .navbar-nav li a:hover {
-          color: black; }
+        .header .navbar .navbar-nav li a:hover, .header .navbar .navbar-nav li a:focus {
+          background-color: transparent; }
+          .header .navbar .navbar-nav li a:hover a::after, .header .navbar .navbar-nav li a:focus a::after {
+            content: ' ';
+            margin-left: -5px;
+            margin-right: -5px;
+            height: 3px;
+            display: block;
+            border-bottom: 2px rgba(255, 255, 255, 0.7) solid; }
       .header .navbar .navbar-nav li.active a::after {
         content: ' ';
         margin-left: -5px;
@@ -5948,44 +5962,82 @@ ul {
   background-size: cover;
   background-color: #122553;
   padding-top: 140px;
-  padding-bottom: 105px; }
+  padding-bottom: 140px; }
   .landing .card {
     background: rgba(0, 0, 0, 0.5);
-    border: 2px #FFFFFF solid;
+    border: 1.5px #FFFFFF solid;
     color: white;
-    padding: 10px; }
-    .landing .card .card-btn:first-of-type {
-      padding-right: 10px; }
-    .landing .card .card-btn:nth-of-type(2) {
-      padding-left: 10px; }
-    .landing .card .card-btn .btn {
-      background: rgba(0, 0, 0, 0.5);
-      border: 2px #FFFFFF solid;
-      border-radius: 0;
-      width: 100%; }
+    padding: 10px 5px; }
+    .landing .card .card-top {
+      position: relative;
+      padding: 20px 15px 0; }
+      .landing .card .card-top .card-name {
+        margin-bottom: -5px;
+        letter-spacing: 1px;
+        position: absolute;
+        bottom: 0; }
+      .landing .card .card-top .card-info {
+        font-size: 10px;
+        font-weight: 300;
+        text-align: right; }
+        .landing .card .card-top .card-info span {
+          padding: 0; }
+    .landing .card .card-tagline {
+      font-size: 9px;
+      font-weight: 300;
+      padding-bottom: 25px; }
+      .landing .card .card-tagline hr {
+        margin-top: 0;
+        margin-bottom: 2px; }
+    .landing .card .card-action-btns {
+      padding: 10px 15px; }
+      .landing .card .card-action-btns .card-btn:first-of-type {
+        padding-right: 10px; }
+      .landing .card .card-action-btns .card-btn:nth-of-type(2) {
+        padding-left: 10px; }
+      .landing .card .card-action-btns .card-btn .btn {
+        background: rgba(0, 0, 0, 0.5);
+        border: 1.5px #FFFFFF solid;
+        border-radius: 0;
+        width: 100%;
+        font-size: 11px;
+        font-weight: 300; }
+        .landing .card .card-action-btns .card-btn .btn:hover {
+          color: rgba(255, 255, 255, 0.7);
+          letter-spacing: 1px;
+          background-color: rgba(36, 37, 38, 0.5); }
 
 .about-me .profile {
   background-color: #242526;
   color: #8b8c8e;
   text-align: center;
-  padding: 20px;
+  padding: 20px 20px 10px;
   font-size: 12px; }
   .about-me .profile .profile-pic {
     height: 94px;
     width: 94px;
     border-radius: 100px;
-    border: 2px #FFFFFF solid;
+    border: 1.5px #FFFFFF solid;
     margin: auto;
     margin-bottom: 10px; }
   .about-me .profile .profile-name {
-    color: white; }
-  .about-me .profile .profile-socmedia {
-    min-height: 40px; }
-    .about-me .profile .profile-socmedia a {
-      height: 40px;
-      width: 40px;
-      border-radius: 40px;
-      border: 2px #FFFFFF solid; }
+    color: white;
+    padding: 10px 10px 0; }
+  .about-me .profile .profile-tagline {
+    padding: 0 10px 10px; }
+  .about-me .profile .profile-socmedia .socmedia-link {
+    height: 40px;
+    width: 40px;
+    border-radius: 40px;
+    border: 1.5px #FFFFFF solid;
+    display: inline-block;
+    margin: 5px; }
+  .about-me .profile hr {
+    border-top: #8b8c8e 1px solid;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: -20px;
+    margin-right: -20px; }
 
 .feature-projects ul, .projects ul {
   padding: 0; }
