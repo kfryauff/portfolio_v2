@@ -1,0 +1,26 @@
+// _footer.scss
+.footer {
+	margin-bottom: 0px;
+	.navbar {
+		@include bg-gradient-tb(rgba(0, 0, 0, 1.0), rgba(0, 0, 0, 0.8));
+		text-align: center;
+		ul.footer-content {
+			margin: 0;
+			padding: 0;
+			list-style: none;
+			display: block;
+			li {
+				position: relative;
+				display: inline-block;
+			}
+		}
+		.cpy {
+			position: absolute;
+			float: left;
+		}
+		.contact {
+			position: absolute;
+			float: right;
+		}
+	}
+}

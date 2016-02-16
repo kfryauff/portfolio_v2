@@ -254,8 +254,8 @@ th {
     border: 1px solid #ddd !important; } }
 @font-face {
   font-family: 'Glyphicons Halflings';
-  src: url("../bower_components/bootstrap-sass-official/assets/fonts/bootstrap/glyphicons-halflings-regular.eot");
-  src: url("../bower_components/bootstrap-sass-official/assets/fonts/bootstrap/glyphicons-halflings-regular.eot?#iefix") format("embedded-opentype"), url("../bower_components/bootstrap-sass-official/assets/fonts/bootstrap/glyphicons-halflings-regular.woff2") format("woff2"), url("../bower_components/bootstrap-sass-official/assets/fonts/bootstrap/glyphicons-halflings-regular.woff") format("woff"), url("../bower_components/bootstrap-sass-official/assets/fonts/bootstrap/glyphicons-halflings-regular.ttf") format("truetype"), url("../bower_components/bootstrap-sass-official/assets/fonts/bootstrap/glyphicons-halflings-regular.svg#glyphicons_halflingsregular") format("svg"); }
+  src: url("../../bower_components/bootstrap-sass-official/assets/fonts/bootstrap/glyphicons-halflings-regular.eot");
+  src: url("../../bower_components/bootstrap-sass-official/assets/fonts/bootstrap/glyphicons-halflings-regular.eot?#iefix") format("embedded-opentype"), url("../../bower_components/bootstrap-sass-official/assets/fonts/bootstrap/glyphicons-halflings-regular.woff2") format("woff2"), url("../../bower_components/bootstrap-sass-official/assets/fonts/bootstrap/glyphicons-halflings-regular.woff") format("woff"), url("../../bower_components/bootstrap-sass-official/assets/fonts/bootstrap/glyphicons-halflings-regular.ttf") format("truetype"), url("../../bower_components/bootstrap-sass-official/assets/fonts/bootstrap/glyphicons-halflings-regular.svg#glyphicons_halflingsregular") format("svg"); }
 .glyphicon {
   position: relative;
   top: 1px;
@@ -5848,7 +5848,7 @@ h1, .landing .card .card-top .card-name, h2, h3 {
 
 /* Custom page header */
 .header {
-  margin-bottom: -70px;
+  margin-bottom: -90px;
   /* Make the masthead heading the same height as the navigation */ }
   .header h3 {
     margin-top: 0;
@@ -5953,16 +5953,42 @@ ul {
         display: block;
         border-bottom: 1px white solid; }
 
+.footer {
+  margin-bottom: 0px; }
+  .footer .navbar {
+    background-image: -webkit-gradient(linear, left top, left bottom, from(black), to(rgba(0, 0, 0, 0.8)));
+    background-image: -webkit-linear-gradient(top, black, rgba(0, 0, 0, 0.8));
+    background-image: -moz-linear-gradient(top, black, rgba(0, 0, 0, 0.8));
+    background-image: -ms-linear-gradient(top, black, rgba(0, 0, 0, 0.8));
+    background-image: -o-linear-gradient(top, black, rgba(0, 0, 0, 0.8));
+    background-image: linear-gradient(to bottom, black, rgba(0, 0, 0, 0.8));
+    filter: progid:DXImageTransform.Microsoft.gradient(start-colourStr='black', end-colourStr='rgba(0, 0, 0, 0.8)');
+    text-align: center; }
+    .footer .navbar ul.footer-content {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: block; }
+      .footer .navbar ul.footer-content li {
+        position: relative;
+        display: inline-block; }
+    .footer .navbar .cpy {
+      position: absolute;
+      float: left; }
+    .footer .navbar .contact {
+      position: absolute;
+      float: right; }
+
 .landing {
-  background-image: url("../images/landing_bg.jpg");
+  background-image: url("../images/landing_bg.png");
   background-repeat: no-repeat;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
   background-color: #122553;
-  padding-top: 140px;
-  padding-bottom: 140px; }
+  padding-top: 180px;
+  padding-bottom: 180px; }
   .landing .card {
     background: rgba(0, 0, 0, 0.5);
     border: 1.5px #FFFFFF solid;
