@@ -20,8 +20,28 @@
 
 @mixin transition($vars...) {
 	-webkit-transition: $vars;
-    -moz-transition: $vars;
-    -ms-transition: $vars;
-    -o-transition: $vars;
-    transition: $vars;
+  -moz-transition: $vars;
+  -ms-transition: $vars;
+  -o-transition: $vars;
+  transition: $vars;
+}
+
+@mixin circle-colors($primary-color, $border-color) {
+	.bar, .fill { border-color: $primary-color !important;}
+
+	&:hover{
+		> span { color: $border-color; }
+	}
+}
+
+@mixin transformable($delta) {
+    -webkit-transition: all $delta linear;
+    -moz-transition: all $delta linear;
+    -o-transition: all $delta linear;
+    -ms-transition: all $delta linear;
+    transition: all $delta linear;
+}
+
+.transformable {
+	@include transformable(1000ms);
 }

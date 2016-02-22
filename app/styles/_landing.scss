@@ -1,5 +1,5 @@
 .landing {
-	background-image: url('../images/landing_bg.png');// no-repeat center center fixed; 
+	background-image: url('../images/landing_bg.png');// no-repeat center center fixed;
 	background-repeat: no-repeat;
 
 	@include background-size(cover);
@@ -58,7 +58,7 @@
 					font-weight: 300;
 					&:hover {
 						color: $white_translucent;
-						letter-spacing: 1px;
+						// letter-spacing: 1px;
 						background-color: $warm_gray_translucent;
 						// border-color: $white_translucent;
 					}

@@ -13,13 +13,15 @@
 	 * Controller of the portfolioApp
 	 */
 	angular.module('portfolioApp')
-	  .controller('MainCtrl', function () {
+	  .controller('MainCtrl', ['$scope', 'profile', function ($scope, profile) {
 	    this.awesomeThings = [
 	      'HTML5 Boilerplate',
 	      'AngularJS',
 	      'Karma'
 	    ];
-	  });
+			$scope.profile = profile;
+			$scope.updatedDate = '10/02/2015';
+	  }]);
 
 
 }());

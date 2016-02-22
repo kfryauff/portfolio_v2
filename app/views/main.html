@@ -14,7 +14,7 @@
           <span class='col-xs-12'>123 Address, City, State</span>
         </div>
       </div>
-      
+
 
       <!-- Tagline -->
       <div class='card-tagline col-xs-12'>
@@ -25,7 +25,11 @@
       <!-- Call to Action Btns -->
       <div class='card-action-btns row'>
         <div class='card-btn col-xs-6'>
-          <div class='btn'>View Projects</div>
+          <div class='btn' du-smooth-scroll="projects" du-scrollspy>
+            <!-- <a href='#projects'> -->
+              View Projects
+            <!-- </a> -->
+          </div>
         </div>
         <div class='card-btn col-xs-6'>
           <div class='btn'>Contact Me</div>
@@ -41,7 +45,7 @@
     <div class='section-title'>Featured Projects</div>
     <ul class='row'>
       <li class='col-sm-4' ng-repeat='proj in projctrl.featProjects'>
-        <img src='{{proj.image}}'></img>
+        <img src='{{proj.images[0]}}'></img>
         <div class='project-tag'>
           <div class='project-title'>{{proj.title}}</div>
           <div class='project-description'>{{proj.description}}</div>
@@ -57,26 +61,22 @@
   <div class='container'>
     <div class='section-title'>About Me</div>
     <div class='profile col-sm-4'>
-      <div class='profile-pic'><img src=""></div>
-      <div class='profile-name'>K. Fryauff</div>
+      <div class='profile-pic'><img src="{{profile.image}}"></div>
+      <div class='profile-name'>{{profile.name}}</div>
       <div class='profile-tagline'>
-        <span>Developer | Designer</span>
+        <span>{{profile.tag}}</span>
         <br />
         <span>Bay Area, CA, USA</span>
       </div>
       <div class='profile-socmedia'>
-        <a href="">
-          <div class='socmedia-link'></div>
-        </a>
-        <a href="">
-          <div class='socmedia-link'></div>
-        </a>
-        <a href="">
-          <div class='socmedia-link'></div>
+        <a href="{{socmedia.link}}" ng-repeat="socmedia in profile.socialMedia">
+          <div class='socmedia-link'>
+            <img src="{{socmedia.image}}" alt="" />
+          </div>
         </a>
       </div>
       <hr>
-      <div class='profile-lastupdate'>Profile last updated DD/MM/YYYY</div>
+      <div class='profile-lastupdate'>Profile last updated {{updatedDate}}</div>
     </div>
     <div class='content col-sm-8'>
       <p>
@@ -90,25 +90,54 @@
 </div>
 
 <!-- Skills & Resume Section -->
-<div class='skills-resume section row'>
+<div class='skills-resume section row' ng-controller='SkillsCtrl as skillsctrl'>
   <div class='container'>
     <div id='skills' class='skills col-sm-9'>
       <div class='section-title'>My Skills</div>
-      <ul>
-        <li>Skill 1</li>
-        <li>Skill 1</li>
-        <li>Skill 1</li>
-        <li>Skill 1</li>
-        <li>Skill 1</li>
-        <li>Skill 1</li>
+      <ul class='skill-legend'>
+        <li class='s1'><div class="bar"></div></li>
+        <li class='s2'><div class="bar"></div></li>
+        <li class='s3'><div class="bar"></div></li>
+        <li class='s4'><div class="bar"></div></li>
+        <li class='s5'><div class="bar"></div></li>
+      </ul>
+      <ul class='row'>
+        <li class='col-sm-3' ng-repeat='skill in skillsctrl.skills | orderBy:"-level"'>
+          <div class="c100 p{{skill.level}} small {{skillsctrl.getColor(skill.level)}}">
+              <span>
+                 {{skill.abbrev}}
+              </span>
+              <div class="slice">
+                  <div class="bar"></div>
+                  <div class="fill"></div>
+              </div>
+          </div>
+        </li>
+      </ul>
+      <ul class='skill-legend'>
+        <li class='s1'><div class="bar"></div></li>
+        <li class='s2'><div class="bar"></div></li>
+        <li class='s3'><div class="bar"></div></li>
+        <li class='s4'><div class="bar"></div></li>
+        <li class='s5'><div class="bar"></div></li>
       </ul>
     </div>
     <div id='resume' class='resume col-sm-3'>
       <div class='section-title'>My Resume</div>
-      <button>View Resume</button>
+      <div class='btn'>
+        View Resume
+      </div>
       <div class='download-instruct'>
-        <h5>Downlaod my Resume</h5>
+        <h5>Downlaod My Resume:</h5>
         <span>Select a File Format</span>
+        <ul>
+          <li class='btn'>.pdf</li>
+          <li class='btn'>.doc</li>
+          <li class='btn'>.txt</li>
+        </ul>
+        <div class='download btn'>
+          Download
+        </div>
       </div>
     </div>
   </div>
@@ -117,21 +146,31 @@
 <!-- Projects Section -->
 <div id='projects' class='projects section odd row' ng-controller='ProjCtrl as projctrl'>
   <div class='container'>
-    <div class='section-title'>Projects
+    <div class='section-title'>
+      Projects
       <form class='search-projects'>
         <input ng-model='searchValue' placeholder='Search Projects'></input>
-        <button>Search</button>
+        <div class='btn'>Search</div>
       </form>
     </div>
 
-    <ul class='row'>
-      <li class='col-sm-4' ng-repeat='proj in projctrl.projects | filter:searchValue:projSearchComparator'>
-        <img src='{{proj.image}}'></img>
+    <ul class='row transformable' ng-class='{"inactive":projctrl.activeProject}'>
+      <li class='col-sm-4'
+          ng-repeat='proj in projctrl.projects | filter:searchValue:projSearchComparator'
+          ng-click='projctrl.activeProject = proj'>
+        <img src='{{proj.images[0]}}'></img>
         <div class='project-tag'>
           <div class='project-title'>{{proj.title}}</div>
           <div class='project-description'>{{proj.description}}</div>
         </div>
       </li>
     </ul>
+  </div>
+
+  <div id='project' class='project transformable container'
+        ng-class='{"active":projctrl.activeProject}'>
+    {{projctrl.activeProject.title}}
+    <br>
+    {{projctrl.activeProject.description}}
   </div>
 </div>

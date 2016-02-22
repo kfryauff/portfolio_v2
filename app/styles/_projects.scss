@@ -1,7 +1,20 @@
 // _featured_projects.scss
 .feature-projects, .projects {
+	.section-title {
+		.search-projects {
+			input {
+			}
+			.btn {
+
+			}
+		}
+	}
 	ul {
 		padding: 0;
+		&.inactive {
+			height: 200px;
+			overflow: hidden;
+		}
 		li {
 			display: inline;
 			overflow: hidden;
@@ -47,5 +60,12 @@
 				}
 			}
 		}
+	}
+}
+.project {
+	@extend .temp;
+	height: 0;
+	&.active {
+		height: 600px;
 	}
 }

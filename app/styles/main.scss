@@ -8,6 +8,7 @@ $icon-font-path: "../../bower_components/bootstrap-sass-official/assets/fonts/bo
 
 @import "variables";
 @import "lib";
+@import "circle";
 
 // TESTING ONLY
 .temp {
@@ -130,9 +131,25 @@ ul {
   }
 }
 
+.btn {
+  background: $white_translucent;
+  border: $black_border;
+  border-radius: 0;
+  width: 100%;
+  font-size: 11px;
+  font-weight: 300;
+  &:hover {
+    color: $black_translucent;
+    letter-spacing: 1px;
+    background-color: $warm_gray_translucent;
+    // border-color: $white_translucent;
+  }
+}
+
 
 @import 'header';
 @import 'footer';
 @import 'landing';
 @import 'about';
+@import 'skills';
 @import 'projects';
