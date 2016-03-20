@@ -1,0 +1,93 @@
+#skills {
+
+  ul {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  ul.row {
+    text-align: center;
+    li {
+      text-align: center;
+      position: relative;
+      margin: 5px auto;
+      div {
+        margin: auto;
+      }
+    }
+  }
+    .s1 {
+      @include circle-colors($s1_primary, $circle_border);
+    }
+
+    .s2 {
+      @include circle-colors($s2_primary, $circle_border);
+    }
+
+    .s3 {
+      @include circle-colors($s3_primary, $circle_border);
+    }
+
+    .s4 {
+      @include circle-colors($s4_primary, $circle_border);
+    }
+
+    .s5 {
+      @include circle-colors($s5_primary, $circle_border);
+    }
+
+  ul.skill-legend {
+    list-style: none;
+    display: block;
+    li {
+      position: relative;
+      display: inline-block;
+      width: 19%;
+      &.s5 > * { min-height: 9px; background-color: $s5_primary; }
+      &.s4 > * { min-height: 7px; background-color: $s4_primary; }
+      &.s3 > * { min-height: 5px; background-color: $s3_primary; }
+      &.s2 > * { min-height: 3px; background-color: $s2_primary; }
+      &.s1 > * { min-height: 1px; background-color: $s1_primary; }
+      .bar {
+        width: 100%;
+        border-width: 1px;
+        border-style: solid;
+      }
+    }
+  }
+}
+
+.project .skill {
+  display: inline-block;
+  border: 1px transparent solid;
+  border-radius: 44px;
+  height: 44px;
+  width: 44px;
+  padding: $padding 0;
+  overflow-x: hidden;
+
+  margin: $margin_sm;
+  color: $white_opaque;
+  background-color: #ccc;
+
+  &.s1 {
+    background-color: $s1_primary;
+    color: $warm-gray;
+  }
+
+  &.s2 {
+    background-color: $s2_primary;
+    color: $warm-gray;
+  }
+
+  &.s3 {
+    background-color: $s3_primary;
+  }
+
+  &.s4 {
+    background-color: $s4_primary;
+  }
+
+  &.s5 {
+    background-color: $s5_primary;
+  }
+}

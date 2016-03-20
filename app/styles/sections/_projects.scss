@@ -1,0 +1,205 @@
+// _featured_projects.scss
+.feature-projects, .projects {
+	overflow: hidden;
+	.project-image-container {
+		width: 100%;
+		height: 100%;
+		overflow: hidden;
+		position: relative;
+		&.selected-image {
+			border: 5px solid $warm-gray;
+		}
+	}	// End .project-image-container
+	.section-title {
+		.search-projects {
+			font-size: 14px;
+			margin-top: $margin;
+			input#search-projects {
+				height: 29px;
+				border: 1px solid $warm-gray;
+				font-size: 10px;
+				padding: 0px 15px;
+				background-color: transparent;
+				&.ng-pristine.ng-untouched {
+					font-style: italic;
+				} // End &.ng-pristine.ng-untouched
+			}	// End input#search-projects
+			button {
+				color: $white_opaque;
+				background-color: $warm-gray;
+				text-align: center;
+				padding: 6px 10px;
+			}	// End button
+		}	// End .search-projects
+	}	// End .section-title
+	ul {
+		padding: 0;
+		min-height: $project_thumbnail_height;
+		&.inactive {
+			display: none;
+			overflow: hidden;
+		}
+		li {
+			display: inline;
+			overflow: hidden;
+			text-align: center;
+			padding: 10px 10px;
+			height: $project_thumbnail_height;
+			max-height: 100%;
+
+			// TESTING PURPOSES ONLY
+			// background-color: $black_translucent;
+			// border: 2px black solid;
+
+			img {
+				object-fit: cover;
+				-webkit-filter: grayscale(1);
+				filter: grayscale(1);
+			}	// End img
+			.project-tag {
+				position: absolute;
+				background-color: $white_translucent;
+				@include bg-gradient-tb($white_translucent, $white_opaque);
+				bottom: 0;
+				left: 0;
+				right: 0;
+				padding: $padding;
+				text-align: left;
+				.project-title {
+					@extend .h6;
+					margin: 0 0 $margin/2;
+				}	// End .project-title
+				.project-description {
+					// @include transition(height, 5s linear);
+					@extend .transformable;
+					@extend .h6;
+					display: none;
+					height: 0;
+					margin: 0 0 $margin/2;
+				}	// End .project-description
+			} // End .project-tag
+			&:hover {
+				img {
+					-webkit-filter: none;
+  					filter: none;
+				}	// End img
+				.project-tag {
+					.project-description {
+						display: block;
+						height: auto;
+						white-space: nowrap;
+						overflow: hidden;
+						text-overflow: ellipsis;
+					}	// End .project-description
+				}	// End .project-tag
+			}	// End &:hover
+		}	// End li
+	}	// End ul
+
+	.carousel-container {
+		padding-bottom: $padding;
+		ul[rn-carousel] {
+			position: relative;
+			li {
+		  max-width: 33.333%;
+			}
+
+		}
+		&.inactive {
+			display: none;
+			overflow: hidden;
+		}
+		.rn-carousel-control {
+
+		}
+	}
+}	// End .projects, .feature-projects
+.projects {
+	padding-bottom: $margin * 4;
+}
+.project {
+	padding: $padding 0;
+	text-align: center;
+	background-color: $white_opaque;
+	overflow: hidden;
+
+	&:not(.active) {
+		display: none;
+		height: 0;
+	}
+	&.active {
+		display: block;
+		height: auto;
+	}
+	.active-project-title {
+		@extend .h4;
+	}
+
+	.active-project-selected-image {
+		overflow: hidden;
+		padding-right: 0;
+		height: 315px;
+		img {
+			width: 100%;
+		}
+	}
+	.active-project-images {
+		padding-left: 0;
+		margin-top: 22px;
+		height: 276px;
+		overflow: scroll;
+	}
+	.active-project-image {
+		overflow: hidden;
+		padding-left: 0;
+		position: relative;
+		border: 1px solid $white_opaque;
+		img {
+			width: 100%;
+			object-fit: cover;
+			-webkit-filter: grayscale(1);
+			filter: grayscale(1);
+		}
+	}
+	.active-project-description {
+		ul > .active-project-d {
+			color: $discover_color;
+			margin-top: $margin;
+		}
+			.active-project-text {
+				text-align: justify;
+				margin-top: $margin;
+				margin-bottom: $margin;
+			}
+			.active-project-links {
+				text-align: left;
+				font-size: $med_font_size;
+			}
+	}
+
+	&:hover {
+		img {
+			-webkit-filter: none;
+				filter: none;
+		}
+	}
+}
+
+.window-top {
+	height: 20px;
+	width: 100%;
+	position: relative;
+	background: $window-bg;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+	padding: 5px;
+	.window-opt-circle {
+		width: 10px;
+		height: 10px;
+		border: 1px solid $window-opt-border;
+		border-radius: 25px;
+		background-color: $window-opt-bg;
+		float: left;
+		margin-left: 5px;
+	}
+}

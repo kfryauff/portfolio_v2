@@ -49,7 +49,7 @@ module.exports = function (grunt) {
         tasks: ['newer:jshint:test', 'newer:jscs:test', 'karma']
       },
       css: {
-        files: ['<%= yeoman.app %>/styles/*.scss'],
+        files: ['<%= yeoman.app %>/styles/{,*/}*.scss'],
         tasks: ['sass']
       },
       styles: {
@@ -233,7 +233,7 @@ module.exports = function (grunt) {
             }
           }
       }
-    }, 
+    },
 
     // Renames files for browser caching purposes
     filerev: {

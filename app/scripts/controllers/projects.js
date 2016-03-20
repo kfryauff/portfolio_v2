@@ -10,7 +10,13 @@
 		.controller('ProjCtrl', ['projects', 'skills', function (projects, skills) {
 			this.projects = projects.projects;
 			this.featProjects = projects.getFeatProj();
-			this.skills = skills.skills;
+			this.skillsObj = skills;
+
+			var i;
+			for(i = 0; i < this.projects.length; i++) {
+				this.projects[i].id = i;
+			}
+
 			var projCtrl = this;
 			this.projSearchComparator = function (actual, expected) {
 				var i, j, skill, id,
@@ -21,7 +27,7 @@
 						return true;
 					}
 				}
-				
+
 				for(i = 0; i < skillsArray.length; i += 1) {
 					id = skills.getSkill(skillsArray[i]);
 					if(id === -1) {break;}

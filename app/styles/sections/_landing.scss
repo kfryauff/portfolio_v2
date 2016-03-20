@@ -4,8 +4,8 @@
 
 	@include background-size(cover);
 	background-color: rgb(18, 37, 83);
-	padding-top: 2 * $header_height;
-	padding-bottom: 2 * $header_height;
+	padding-top: 1.25 * $header_height;
+	padding-bottom: $header_height;
 
 	.card {
 		background: $black_translucent;

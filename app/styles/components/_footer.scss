@@ -1,18 +1,19 @@
 // _footer.scss
 .footer {
 	margin-bottom: 0px;
+	font-size: $med_font_size;
 	.navbar {
 		@include bg-gradient-tb(rgba(0, 0, 0, 1.0), rgba(0, 0, 0, 0.8));
 		text-align: center;
 		ul.footer-content {
-			margin: 15px 0 -20px;
+			margin: 15px 0 -15px;
 			padding: 0;
 			list-style: none;
 			display: block;
 			li {
 				position: relative;
 				display: inline-block;
-				padding: 0 15px;
+				padding: 0 2px;
 			}
 		}
 		.cpy {
@@ -20,6 +21,7 @@
 		}
 		.contact {
 			float: right;
+			color: $white_opaque;
 		}
 	}
 }

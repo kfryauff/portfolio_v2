@@ -6,9 +6,10 @@ $icon-font-path: "../../bower_components/bootstrap-sass-official/assets/fonts/bo
 
 // endbower
 
-@import "variables";
-@import "lib";
-@import "circle";
+@import "globals/variables";
+@import "globals/lib";
+@import "components/circle";
+@import "components/carousel";
 
 // TESTING ONLY
 .temp {
@@ -139,17 +140,61 @@ ul {
   font-size: 11px;
   font-weight: 300;
   &:hover {
-    color: $black_translucent;
-    letter-spacing: 1px;
-    background-color: $warm_gray_translucent;
+    opacity: 0.98;
+    // color: $black_translucent;
+    letter-spacing: 0.5px;
+    // background-color: $warm_gray_translucent;
     // border-color: $white_translucent;
   }
 }
 
+.btn:active, button:active, .btn.active, button.active {
+  background: $black_translucent;
+  border: $black_border;
+  color: $white_opaque;
+}
 
-@import 'header';
-@import 'footer';
-@import 'landing';
-@import 'about';
-@import 'skills';
-@import 'projects';
+button {
+  @extend .btn;
+}
+
+.view-more {
+  position: absolute;
+  right: $spacing;
+  bottom: 0;
+  padding-bottom: $padding/2;
+  color: $black_opaque;
+  .glyphicon {
+    font-size:$med_font_size;
+  }
+}
+
+.container, .row, .container-fluid {
+  position: relative;
+}
+
+.med_font {
+  font-size: $med_font_size;
+}
+
+.ul-unstyle {
+  padding: 0;
+  list-style: none;
+  width: 100%;
+  min-height: 0 !important;
+  li {
+    width: 100%;
+  }
+}
+
+.label {
+  color: $label_color;
+  text-transform: uppercase;
+}
+
+@import 'components/header';
+@import 'components/footer';
+@import 'sections/landing';
+@import 'sections/about';
+@import 'sections/skills';
+@import 'sections/projects';

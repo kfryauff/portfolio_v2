@@ -14,7 +14,7 @@
 		}
 		.navbar-nav {
 			float: right;
-			
+
 			li {
 				a {
 					color: $white_opaque;
@@ -42,6 +42,17 @@
 					}
 				}
 			}
+		}
+		ul.dropdown-menu {
+			background-color: $black_translucent;
+			li {
+
+			}
+		}
+
+		.nav .open > a, .nav .open > a:hover, .nav .open > a:focus {
+			background: $black_opaque;
+			border-color: transparent;
 		}
 	}
 }

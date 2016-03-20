@@ -1,0 +1,15 @@
+.rn-carousel-controls {
+  position: relative;
+  top: -(3/4) * $project_thumbnail_height;
+  .rn-carousel-control {
+    background-color: $warm-gray;
+    color: white;
+    padding: 1px 10px;
+    &.rn-carousel-control-next {
+      right: 0;
+    }
+    &.rn-carousel-control-prev {
+      left: 0;
+    }
+  }
+}

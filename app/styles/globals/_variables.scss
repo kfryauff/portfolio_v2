@@ -1,0 +1,52 @@
+// _variables.scss
+
+$header_height: 90px;
+
+$light_text_color: rgb(255, 255, 255);
+$dark_text_color: rgb(0, 0, 0);
+
+$black_translucent: rgba(0, 0, 0, 0.5);
+$black_opaque: rgb(0, 0, 0);
+$white_translucent: rgba(255, 255, 255, 0.7);
+$white_opaque: rgb(255, 255, 255);
+$warm-gray: rgb(36, 37, 38);
+$warm-gray_translucent: rgba(36, 37, 38, 0.5);
+$light-gray: rgb(139, 140, 142);
+$med-gray: rgb(146, 146, 146);
+$gray-md: rgb(212, 210, 212);
+$med-gray2: rgb(119, 119, 119);
+
+// Fake Window Colors:
+$window-bg: $gray-md;
+$window-opt-bg: $warm-gray;
+$window-opt-border: $black_translucent;
+
+// Text Colors:
+$label_color: $med-gray;
+$discover_color: $med-gray2;
+
+// Circle Colors :
+$circle_border: $warm-gray;
+$s1_primary: rgb(185, 255, 250);
+$s2_primary: rgb(131, 211, 232);
+$s3_primary: rgb(108, 184, 255);
+$s4_primary: rgb(46, 90, 232);
+$s5_primary: rgb(13, 2, 255);
+// $s1_primary: rgb(213, 51, 38);
+// $s2_primary: rgb(222, 87, 75);
+// $s3_primary: rgb(250, 162, 37);
+// $s4_primary: rgb(37, 133, 181);
+// $s5_primary: rgb(0, 106, 164);
+
+$padding: 10px;
+$padding_sm: 5px;
+$spacing: 20px;
+$margin: 10px;
+$margin_sm: 5px;
+
+$med_font_size: 12px;
+
+$white_border: 1.5px $white_opaque solid;
+$black_border: 1.5px $warm-gray solid;
+
+$project_thumbnail_height: 150px;

@@ -9,6 +9,7 @@
     <!-- build:css(.) styles/vendor.css -->
     <!-- bower:css -->
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="bower_components/angular-carousel/dist/angular-carousel.css" />
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css(.tmp) styles/main.css -->
@@ -47,8 +48,8 @@
                 <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button"
                  aria-haspopup="true" aria-expanded="false">Resume <span class="caret"></a>
                 <ul class="dropdown-menu">
-                  <li><a href="#">Action</a></li>
-                  <li><a href="#">Another action</a></li>
+                  <li du-smooth-scroll="resume" du-scrollspy><a href="#">View Resume</a></li>
+                  <li du-smooth-scroll="resume" du-scrollspy><a href="#">Download Resume</a></li>
                 </ul>
               </li>
             </ul>
@@ -62,10 +63,11 @@
       <div ng-view=""></div>
     </div>
 
-    <div class="footer">
+    <div class="footer" ng-controller='MainCtrl as mainctrl'>
       <div class="navbar navbar-fixed-bottom">
         <div class="container">
           <ul class="footer-content">
+            <li>Discover</li>
             <li>Design</li>
             <li>Develop</li>
             <li>Deploy</li>
@@ -73,8 +75,9 @@
           <div class="cpy">
             (c) 2015 Krista Fryauff
           </div>
-          <div class="contact">
-            Contact Me >
+          <div class="contact"
+            ng-click='contactMe()'>
+            Contact Me <span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span>
           </div>
         </div>
       </div>
@@ -104,10 +107,13 @@
     <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
     <script src="bower_components/angular-touch/angular-touch.js"></script>
     <script src="bower_components/angular-scroll/angular-scroll.js"></script>
+    <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+    <script src="bower_components/angular-carousel/dist/angular-carousel.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
         <!-- build:js({.tmp,app}) scripts/scripts.js -->
+        <script src="scripts/lib/angular-round-progress-directive.js"></script>
         <script src="scripts/app.js"></script>
         <script src="scripts/controllers/main.js"></script>
         <script src="scripts/controllers/about.js"></script>
