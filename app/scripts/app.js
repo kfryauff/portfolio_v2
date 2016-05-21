@@ -19,6 +19,25 @@
     projects: [
       {
         featured: true,
+        title: 'Mobile Web Development: Bigotires',
+        company: 'Moovweb',
+        client: 'Bigotires',
+        d: ['Develop', 'Deploy'],
+        links: [
+          {
+            label: 'Live Site:',
+            url: 'http://m.bigotires.com/'
+          }
+        ],
+        role: 'Mobile Web Developer',
+        images: [
+
+        ],
+        description: 'Working as a Moovweb Mobile Web Developer, I contributed to the transformation of the desktop bigotires site into the mobile adapted version, viewable from the live site link. This project was built on the Moovweb platform and included extensive manipulation of html with javascript and sass. My contribution included the Product Detail Pages (PDP), Search Results Pages, Brand pages, the Store Locator, and several others. Along with these mentioned pages, I designed and built a custom comparison functionality based on the desktop site\'s equivalent behaviour.',
+        skills: ['html', 'css', 'sass', 'js']
+      },
+      {
+        featured: true,
         title: 'BrewJump',
         client: 'Narendra Twiari',
         d: ['Discover', 'Develop'],
@@ -43,8 +62,8 @@
           'images/projects/brewjump/brewjump6.png',
           'images/projects/brewjump/brewjump7.png',
         ],
-        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed a commodo lectus, ac dictum ex. Curabitur euismod placerat enim at accumsan. Integer porttitor blandit erat quis egestas. In rutrum tempus mi, vitae facilisis lorem ultricies eu. Fusce vitae eleifend elit, vitae ullamcorper nisi. Etiam neque felis, fringilla et felis feugiat, tincidunt faucibus lacus. Donec et ex at magna pulvinar dignissim. Vestibulum sollicitudin ex et elementum tempus. Nullam bibendum ornare metus, a rhoncus est ultricies in. Duis sit amet risus purus. Sed non augue nec elit ultricies rutrum interdum sit amet magna. Curabitur eget augue at ante eleifend lacinia a nec purus. Vestibulum lectus nibh, cursus non eleifend at, viverra a ante. Cras a metus ac urna tincidunt scelerisque.',
-        skills: ['css', 'js', 'git', 'ps']
+        description: 'As a Freelance Developer, I developed a shell project & basic UI from the client\'s original design. Additionally, I was tasked with extrapolating a responsive design for mobile and device screens.  This project uses a very minimalistic stack with the intention of being flexible and easily modified for future development.',
+        skills: ['html', 'css', 'js', 'git', 'ps']
       },
       {
         featured: true,
@@ -233,7 +252,14 @@
         label: 'CSS',
         skill: 'Cascading Style Sheets',
         description: 'A cascading style sheet (CSS) is a Web page derived from multiple sources with a defined order of precedence where the definitions of any style element conflict.',
-        percentage: 75
+        percentage: 70
+      },
+      {
+        skillID: 'sass',
+        label: 'Sass',
+        skill: 'Syntactically Awesome Style Sheets',
+        description: 'Sass is an extension of CSS that adds power and elegance to the basic language. It allows you to use variables, nested rules, mixins, inline imports, and more, all with a fully CSS-compatible syntax.',
+        percentage: 65
       },
       {
         skillID: 'js',
@@ -345,16 +371,19 @@
     image: 'http://lorempixel.com/100/100/animals/8/',
     socialMedia: {
       email: {
-        link: '/',
+        link: 'javscript:void(0);',
+        click: 'contactMe()',
         image: 'images/socialmedia/Email.png'
       },
       linkedin: {
-        link: '/',
-        image: 'images/socialmedia/Linkedin.png'
+        link: 'https://www.linkedin.com/in/kfryauff',
+        image: 'images/socialmedia/Linkedin.png',
+        target: '_blank'
       },
       gplus: {
-        link: '/',
-        image: 'images/socialmedia/Googleplus.png'
+        link: 'https://mail.google.com/mail/?view=cm&fs=1&to=krista.fryauff@gmail.com',
+        image: 'images/socialmedia/Gmail.png',
+        target: '_blank'
       }
     }
   };

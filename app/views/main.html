@@ -9,9 +9,9 @@
           K. Fryauff
         </div>
         <div class='card-info col-xs-5 col-xs-offset-7'>
-          <span class='col-xs-12'>email@mail.com</span>
-          <span class='col-xs-12'>000-000-0000</span>
-          <span class='col-xs-12'>123 Address, City, State</span>
+          <span class='col-xs-12'>krista.fryauff@gmail.com</span>
+          <!-- <span class='col-xs-12'>240-418-8211</span> -->
+          <span class='col-xs-12'>Bay Area, CA, USA</span>
         </div>
       </div>
 
@@ -47,22 +47,28 @@
         <h3 class="modal-title">Get in Touch</h3>
     </div>
   </div>
-  <div class="modal-body container-fluid">
-      <div class="col-sm-10 col-sm-offset-1">
-      <input type="text" ng-model="main.contactName" value='Name' placeholder='Your name' required class="form-control">
-      <input type="text" ng-model="main.contactEmail" value='Email' placeholder='Your e-mail' required class="form-control">
-      <input type="text" ng-model="main.contactSubject" value='Subject' placeholder='Message Subject' required class="form-control">
-      <textarea class="form-control" rows="5" ng-model="main.contactMessage" value='Message' placeholder='Enter your message here...' required></textarea>
+  <form>
+    <div class="modal-body container-fluid">
+        <div class="col-sm-10 col-sm-offset-1">
+        <div class="input-group">
+          <div class="input-group-addon">Your Name</div>
+          <input type="text" ng-model="main.contactName" value='Name' placeholder='J' required class="form-control">
+        </div>
+
+        <input type="text" ng-model="main.contactEmail" value='Email' placeholder='Your e-mail' required class="form-control">
+        <input type="text" ng-model="main.contactSubject" value='Subject' placeholder='Message Subject' required class="form-control">
+        <textarea class="form-control" rows="5" ng-model="main.contactMessage" value='Message' placeholder='Enter your message here...' required></textarea>
+        </div>
+    </div>
+    <div class="modal-footer container-fluid">
+      <div class='col-sm-2 col-sm-offset-8'>
+        <button class="btn" ng-click="cancel()">Cancel</span></button>
       </div>
-  </div>
-  <div class="modal-footer container-fluid">
-    <div class='col-sm-2 col-sm-offset-8'>
-      <button class="btn" ng-click="cancel()">Cancel</span></button>
+      <div class='col-sm-2'>
+        <button type="submit" class="btn" ng-click="send()">Send <span class="glyphicon glyphicon-send" aria-hidden="true"></span></button>
+      </div>
     </div>
-    <div class='col-sm-2'>
-      <button class="btn" ng-click="send()">Send <span class="glyphicon glyphicon-send" aria-hidden="true"></span></button>
-    </div>
-  </div>
+  </form>
 </script>
 <!-- End Contact Me Modal -->
 
@@ -79,7 +85,7 @@
             <img src='{{proj.images[0]}}'></img>
             <div class='project-tag'>
               <div class='project-title'>{{proj.title}}</div>
-              <div class='project-description'>{{proj.description}}</div>
+              <div class='project-description'>{{proj.role}}</div>
             </div>
           </div>
 
@@ -106,7 +112,7 @@
         <span>Bay Area, CA, USA</span>
       </div>
       <div class='profile-socmedia'>
-        <a href='{{socmedia.link}}' ng-repeat='socmedia in profile.socialMedia'>
+        <a href='{{socmedia.link}}' target='{{socmedia.target}}' ng-click='{{socmedia.click}}' ng-repeat='socmedia in profile.socialMedia'>
           <div class='socmedia-link'>
             <img src='{{socmedia.image}}' alt='' />
           </div>
@@ -117,10 +123,17 @@
     </div>
     <div class='content col-sm-8'>
       <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris posuere lectus eget ligula euismod, eu venenatis est rutrum. Nulla feugiat purus a risus lobortis, in laoreet justo luctus. Mauris turpis eros, cursus id facilisis nec, porttitor nec tortor. Duis ultricies augue eros, faucibus tincidunt quam facilisis at. Sed quis cursus dolor, ut gravida massa. Donec euismod lacus vitae orci cursus, blandit varius ligula porttitor. Cras hendrerit posuere nulla, at dignissim ipsum malesuada et. Etiam laoreet ipsum id cursus ornare. Cras at dolor risus.
+        My name is Krista Fryauff. I have spent my undergraduate years at Stanford University combining Computer Science with a concentration in Human Computer Interaction and a minor in Comparative Studies in Race and Ethnicity. I am both passionate and curious about the many ways in which technology and society interact and am excited to explore new arenas and expand my knowledge of technology and development.
       </p>
+      <br>
       <p>
-        Sed convallis ipsum eu vulputate feugiat. Mauris vel lorem eget nisl tempus ultrices. Duis efficitur lacus et placerat efficitur. Nulla dapibus at massa at rutrum. Nulla sed accumsan neque, sed tempor libero. Nam aliquam est et nisl finibus, sed pellentesque justo consequat. Nunc facilisis ultrices nibh nec fringilla. Ut sit amet diam finibus, pellentesque dui at, auctor leo. Etiam at massa mauris. In elementum ac nisl id consectetur. Phasellus vestibulum cursus eros, faucibus accumsan dui tempus ac. Nulla facilisi. Vestibulum a tellus in dolor cursus varius sit amet eu turpis.
+        <h4>My Experience</h4>
+        I've worn many hats in various adventures often combining interdisciplinary areas of study to push the boundaries between technology and people. Most recently, I worked as a Mobile Web Developer at a mobile solutions startup, transforming desktop sites of clients like Peet's, Epson, and Bigotires, into adapted and optimized mobile experiences. I have also redesigned websites in the Military/government sphere, providing updates to their interface design and user experience. I've developed a data visualization for a Stanford affiliated geospatial history lab where I was involved in the project from ideation to production with singular control over the code.  Additionally, I spent my time in the Navy ROTC developing leadership skills for better, more efficient and communicative work styles. I've learned to pick things up quickly, keep an open mind, and indulge a healthy dosage of good-natured curiosity.
+      </p>
+      <br>
+      <p>
+        <h4>Where my interests have led me...</h4>
+        I'm constantly looking to push my understanding to new levels and take on new challenges.  I'm very interested in UI/UX development as well as application/software engineering.  Additionally, as my specialty in HCI &amp; my minor in CSRE suggest, I've got a passion for the intersection of technology, invention/innovation and community/society.
       </p>
     </div>
   </div>
@@ -138,6 +151,7 @@
         <li class='s2'><div class='bar'></div></li>
         <li class='s1'><div class='bar'></div></li>
       </ul>
+
       <ul class='row'>
         <li class='col-sm-3' ng-repeat='skill in skillsctrl.skills | orderBy:"-percentage"'
           ng-click='searchValue = skill.skillID'>
@@ -164,6 +178,20 @@
         <li class='s2'><div class='bar'></div></li>
         <li class='s1'><div class='bar'></div></li>
       </ul>
+
+      <!-- <p>
+        <h4>Experience in ...</h4>
+        <ul>
+         <li><b>Web Development:</b> HTML | CSS/SASS | Bootstrap | Javascript | JQuery | Ruby on Rails | AngularJS | D3.js | node.js | PHP | CMS</li>
+         <li><b>Software Development:</b>Java | C | C++ | TruBasic</li>
+         <li><b>UI Development:</b> UI/UX Design | Photoshop | Illustrator | Invision | Moodboard/Storyboard/Mockup</li>
+         <li><b>Version Control:</b> Git | GitHub | Bitbucket</li>
+         <li><b>Development Environments:</b> Heroku | Vagrant | AMPPS</li>
+         <li><b>OS:</b> OSX | Windows | Linux</li>
+         <li>Minor Experience in: Python | Express | Sketch</li>
+       </ul>
+      </p> -->
+
     </div>
     <div id='resume' class='resume col-sm-3'>
       <div class='section-title'>My Resume</div>
@@ -201,6 +229,7 @@
             </div>
           </li>
         </ul>
+        <span id='no-file-type' ng-if='' class='bg-warning'>{{noFileTypeMessage}}</div>
         <div class='download btn'
            ng-click="downloadResume(fileType)">
           Download
@@ -267,7 +296,7 @@
           <img src='{{proj.images[0]}}'></img>
           <div class='project-tag'>
             <div class='project-title'>{{proj.title}}</div>
-            <div class='project-description'>{{proj.description}}</div>
+            <div class='project-description'>{{proj.role}}</div>
           </div>
         </div>
       </li>
@@ -290,7 +319,7 @@
             <img src='{{proj.images[0]}}'></img>
             <div class='project-tag'>
               <div class='project-title'>{{proj.title}}</div>
-              <div class='project-description'>{{proj.description}}</div>
+              <div class='project-description'>{{proj.role}}</div>
             </div>
           </div>
         </li>

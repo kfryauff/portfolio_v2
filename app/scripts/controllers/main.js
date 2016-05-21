@@ -25,6 +25,7 @@
 			$scope.downloadResume = function (fileType) {
 				$scope.fileType = fileType;
 				if(fileType) {
+					$scope.noFileTypeMessage = null;
 					var resumeDownloadModalInstance = $uibModal.open({
 			      animation: true,
 			      templateUrl: 'resumeModal.html',
@@ -43,16 +44,17 @@
 			      console.log('Modal dismissed at: ' + new Date());
 			    });
 				} else {
-					$uibModal.open({
-						animation: true,
-						templateUrl: 'modalErrorMessage.html',
-						controller: 'modalErrorMessageCtrl',
-						resolve: {
-							message: function() {
-								return 'Please select a file type to download.';
-							}
-						}
-					});
+					$scope.noFileTypeMessage = 'No File Type Selected. Please select a file format above before attempting to Download';
+					// $uibModal.open({
+					// 	animation: true,
+					// 	templateUrl: 'modalErrorMessage.html',
+					// 	controller: 'modalErrorMessageCtrl',
+					// 	resolve: {
+					// 		message: function() {
+					// 			return 'Please select a file type to download.';
+					// 		}
+					// 	}
+					// });
 				}
 
 		  };
@@ -85,7 +87,12 @@
 				$uibModalInstance.dismiss('cancel');
 			};
 			$scope.send = function () {
-				$uibModalInstance.close('sent');
+				// $uibModalInstance.close('sent');
+				console.log('uibmodalinst: ', $uibModalInstance);
+				// $uibModalInstance.find('input').each(function() {
+				//
+				// });
+				// if()
 			};
 		})
 		.controller('resumeDownloadModalCtrl', function ($scope, $uibModalInstance, selectedFileType) {

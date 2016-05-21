@@ -13,7 +13,11 @@
 			li {
 				position: relative;
 				display: inline-block;
-				padding: 0 2px;
+				padding: 0 5px;
+				border-right: 1px solid $med-gray2;
+			}
+			li:last-of-type {
+				border-right: none;
 			}
 		}
 		.cpy {

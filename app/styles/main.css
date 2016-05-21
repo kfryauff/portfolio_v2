@@ -6700,7 +6700,10 @@ ul {
       .footer .navbar ul.footer-content li {
         position: relative;
         display: inline-block;
-        padding: 0 2px; }
+        padding: 0 5px;
+        border-right: 1px solid #777777; }
+      .footer .navbar ul.footer-content li:last-of-type {
+        border-right: none; }
     .footer .navbar .cpy {
       float: left; }
     .footer .navbar .contact {
