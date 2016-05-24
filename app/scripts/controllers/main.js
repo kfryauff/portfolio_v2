@@ -82,17 +82,66 @@
 				$uibModalInstance.close('ok');
 			};
 		})
-		.controller('contactMeModalCtrl', function($scope, $uibModalInstance) {
+		.controller('contactMeModalCtrl', function($scope, $http, $log, promiseTracker, $uibModalInstance) {
+			// Inititate the promise tracker to track form submissions.
+			$scope.progress = promiseTracker();
+
 			$scope.cancel = function () {
 				$uibModalInstance.dismiss('cancel');
 			};
-			$scope.send = function () {
+			$scope.submit = function (form) {
 				// $uibModalInstance.close('sent');
 				console.log('uibmodalinst: ', $uibModalInstance);
-				// $uibModalInstance.find('input').each(function() {
-				//
-				// });
-				// if()
+
+				// Trigger validation flag.
+  			$scope.submitted = true;
+
+				// If form is invalid, return and let AngularJS show validation errors.
+			  if (form.$invalid) {
+			    return;
+			  }
+
+				// Default values for the request.
+			  var config = {
+			    params : {
+			      'callback' : 'JSON_CALLBACK',
+			      'name' : $scope.name,
+			      'email' : $scope.email,
+			      'subject' : $scope.subject,
+			      'message' : $scope.message
+			    },
+			  };
+
+			  // Perform JSONP request.
+			  var $promise = $http.jsonp('response.json', config)
+			    .success(function(data, status, headers, config) {
+			      if (data.status === 'OK') {
+			        $scope.name = null;
+			        $scope.email = null;
+			        $scope.subject = null;
+			        $scope.message = null;
+			        $scope.successmessages = 'Your form has been sent!';
+			        $scope.submitted = false;
+			      } else {
+			        $scope.errmessages = 'Oops, we received your request, but there was an error processing it.';
+			        $log.error(data);
+			      }
+			    })
+			    .error(function(data, status, headers, config) {
+			      $scope.progress = data;
+			      $scope.errmessages = 'There was a network error. Try again later.';
+			      $log.error(data);
+			    })
+			    .finally(function() {
+			      // Hide status errmessages after three seconds.
+			      $timeout(function() {
+			        $scope.errmessages = null;
+							$scope.successmessages = null;
+			      }, 3000);
+			    });
+
+			  // Track the request and show its progress to the user.
+			  $scope.progress.addPromise($promise);
 			};
 		})
 		.controller('resumeDownloadModalCtrl', function ($scope, $uibModalInstance, selectedFileType) {

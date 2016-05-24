@@ -6710,6 +6710,13 @@ ul {
       float: right;
       color: white; }
 
+.input-group {
+  width: 100%; }
+
+.input-group-addon {
+  width: 95px;
+  text-align: right; }
+
 .landing {
   background-image: url("../images/landing_bg.png");
   background-repeat: no-repeat;

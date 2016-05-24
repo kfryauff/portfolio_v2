@@ -27,13 +27,13 @@
         <div class='card-btn col-xs-6'>
           <div class='btn' du-smooth-scroll='projects' du-scrollspy>
             <!-- <a href='#projects'> -->
-              View Projects
+            View Projects
             <!-- </a> -->
           </div>
         </div>
         <div class='card-btn col-xs-6'>
           <div class='btn'
-            ng-click='contactMe()'>Contact Me</div>
+          data-ng-click='contactMe()'>Contact Me</div>
         </div>
       </div>
     </div>
@@ -44,59 +44,82 @@
 <script type="text/ng-template" id="contactMe.html">
   <div class="modal-header container-fluid">
     <div class="col-sm-10 col-sm-offset-1">
-        <h3 class="modal-title">Get in Touch</h3>
+      <h3 class="modal-title">Get in Touch</h3>
     </div>
   </div>
-  <form>
-    <div class="modal-body container-fluid">
-        <div class="col-sm-10 col-sm-offset-1">
-        <div class="input-group">
-          <div class="input-group-addon">Your Name</div>
-          <input type="text" ng-model="main.contactName" value='Name' placeholder='J' required class="form-control">
-        </div>
+  <!-- Messages -->
+  <div id='successmessages' class='alert alert-success' data-ng-show='successmessages' data-ng-bind='successmessages'></div>
+  <div id='errmessages' class='alert alert-danger' data-ng-show='errmessages' data-ng-bind='errmessages'></div>
+  <div data-ng-show='progress.active()' class='alert alert-warning'>Sending&hellip;</div>
 
-        <input type="text" ng-model="main.contactEmail" value='Email' placeholder='Your e-mail' required class="form-control">
-        <input type="text" ng-model="main.contactSubject" value='Subject' placeholder='Message Subject' required class="form-control">
-        <textarea class="form-control" rows="5" ng-model="main.contactMessage" value='Message' placeholder='Enter your message here...' required></textarea>
+  <form name='contactForm' novalidate role='form'>
+    <div class='modal-body container-fluid'>
+      <div class='col-sm-10 col-sm-offset-1'>
+        <!-- Input Name -->
+        <div class='input-group'>
+          <label class='input-group-addon' for='name'>Your Name</label>
+          <span class='label label-danger' data-ng-show='submitted && contactForm.name.$error.required'>Required!</span>
+          <input type='text' name='name' data-ng-model='name' class='form-control' required />
         </div>
+        <!-- Input E-mail -->
+        <div class='input-group'>
+          <label class='input-group-addon' for='email'>Your Email</label>
+          <span class='label label-danger' data-ng-show='submitted && contactForm.email.$error.required'>Required!</span>
+          <span class='label label-danger' data-ng-show='submitted && contactForm.$error.email'>Invalid email!</span>
+          <input type='email' name='email' data-ng-model='email' placeholder='your@email.com' class='form-control' required>
+        </div>
+        <!-- Input Subject -->
+        <div class='input-group'>
+          <label class='input-group-addon' for='subject'>Subject</label>
+          <span class='label label-danger' data-ng-show='submitted && contactForm.subject.$error.required'>Required!</span>
+          <input type='text' name='subject' data-ng-model='subject' placeholder='Message Subject' class='form-control' required>
+        </div>
+        <!-- Input Message -->
+        <div class='input-group'>
+          <span class='label label-danger' data-ng-show='submitted && contactForm.message.$error.required'>Message Blank!</span>
+          <textarea rows='5' name='message' data-ng-model='message' placeholder='Enter your message here...' class='form-control' required></textarea>
+        </div>
+      </div>
     </div>
-    <div class="modal-footer container-fluid">
+    <div class='modal-footer container-fluid'>
       <div class='col-sm-2 col-sm-offset-8'>
-        <button class="btn" ng-click="cancel()">Cancel</span></button>
+        <button class='btn' data-ng-click='cancel()'>Cancel</span></button>
       </div>
       <div class='col-sm-2'>
-        <button type="submit" class="btn" ng-click="send()">Send <span class="glyphicon glyphicon-send" aria-hidden="true"></span></button>
+        <button class='btn' data-ng-disabled='progress.active()' data-ng-click='submit(contactForm)'>Send <span class='glyphicon glyphicon-send' aria-hidden='true'></span></button>
       </div>
     </div>
   </form>
+
+
 </script>
 <!-- End Contact Me Modal -->
 
 
 <!-- Feature Projects Section -->
-<div id='featured' class='feature-projects section row' ng-controller='ProjCtrl as projctrl'>
+<div id='featured' class='feature-projects section row' data-ng-controller='ProjCtrl as projctrl'>
   <div class='container'>
     <!-- <div class='section-title'>Featured Projects</div> -->
     <ul class='row'>
-      <li class='col-sm-4 col-xs-12' ng-repeat='proj in projctrl.featProjects'
-            ng-click='main.activeProject = proj; main.carousel.index = proj.id-1'
-            du-smooth-scroll='projects' du-scrollspy>
-          <div class='project-image-container'>
-            <img src='{{proj.images[0]}}'></img>
-            <div class='project-tag'>
-              <div class='project-title'>{{proj.title}}</div>
-              <div class='project-description'>{{proj.role}}</div>
-            </div>
-          </div>
+      <li class='col-sm-4 col-xs-12' data-ng-repeat='proj in projctrl.featProjects'
+      data-ng-click='main.activeProject = proj; main.carousel.index = proj.id-1'
+      du-smooth-scroll='projects' du-scrollspy>
+      <div class='project-image-container'>
+        <img src='{{proj.images[0]}}'></img>
+        <div class='project-tag'>
+          <div class='project-title'>{{proj.title}}</div>
+          <div class='project-description'>{{proj.role}}</div>
+        </div>
+      </div>
 
-      </li>
-    </ul>
-    <a class="view-more"
-        ng-click='main.activeProject=undefined'
-        du-smooth-scroll='projects' du-scrollspy>
-      View All Projects <span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span>
-    </a>
-  </div>
+    </li>
+  </ul>
+  <a class="view-more"
+  data-ng-click='main.activeProject=undefined'
+  du-smooth-scroll='projects' du-scrollspy>
+  View All Projects <span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span>
+</a>
+</div>
 </div>
 
 <!-- About Me Section -->
@@ -112,7 +135,7 @@
         <span>Bay Area, CA, USA</span>
       </div>
       <div class='profile-socmedia'>
-        <a href='{{socmedia.link}}' target='{{socmedia.target}}' ng-click='{{socmedia.click}}' ng-repeat='socmedia in profile.socialMedia'>
+        <a href='{{socmedia.link}}' target='{{socmedia.target}}' data-ng-click='{{socmedia.click}}' data-ng-repeat='socmedia in profile.socialMedia'>
           <div class='socmedia-link'>
             <img src='{{socmedia.image}}' alt='' />
           </div>
@@ -140,7 +163,7 @@
 </div>
 
 <!-- Skills & Resume Section -->
-<div class='skills-resume section row' ng-controller='SkillsCtrl as skillsctrl'>
+<div class='skills-resume section row' data-ng-controller='SkillsCtrl as skillsctrl'>
   <div class='container'>
     <div id='skills' class='skills col-sm-9'>
       <div class='section-title'>My Skills</div>
@@ -153,255 +176,255 @@
       </ul>
 
       <ul class='row'>
-        <li class='col-sm-3' ng-repeat='skill in skillsctrl.skills | orderBy:"-percentage"'
-          ng-click='searchValue = skill.skillID'>
-          <div class='c100 p{{skill.percentage}} small {{skillsctrl.getColor(skill.percentage)}}'
-            uib-popover="{{skill.description}}"
-            popover-append-to-body='true'
-            popover-title="{{skill.skill}} : {{skill.label}}"
-            popover-trigger="mouseenter">
-              <span>
-                 {{skill.label}}
-              </span>
-              <div class='slice'>
-                  <div class='bar'></div>
-                  <div class='fill'></div>
-              </div>
-          </div>
-          <!-- <div ang:round:progress data-round-progress-model='skill'></div> -->
-        </li>
-      </ul>
-      <ul class='skill-legend'>
-        <li class='s5'><div class='bar'></div></li>
-        <li class='s4'><div class='bar'></div></li>
-        <li class='s3'><div class='bar'></div></li>
-        <li class='s2'><div class='bar'></div></li>
-        <li class='s1'><div class='bar'></div></li>
-      </ul>
-
-      <!-- <p>
-        <h4>Experience in ...</h4>
-        <ul>
-         <li><b>Web Development:</b> HTML | CSS/SASS | Bootstrap | Javascript | JQuery | Ruby on Rails | AngularJS | D3.js | node.js | PHP | CMS</li>
-         <li><b>Software Development:</b>Java | C | C++ | TruBasic</li>
-         <li><b>UI Development:</b> UI/UX Design | Photoshop | Illustrator | Invision | Moodboard/Storyboard/Mockup</li>
-         <li><b>Version Control:</b> Git | GitHub | Bitbucket</li>
-         <li><b>Development Environments:</b> Heroku | Vagrant | AMPPS</li>
-         <li><b>OS:</b> OSX | Windows | Linux</li>
-         <li>Minor Experience in: Python | Express | Sketch</li>
-       </ul>
-      </p> -->
-
-    </div>
-    <div id='resume' class='resume col-sm-3'>
-      <div class='section-title'>My Resume</div>
-      <div class='btn'>
-        View Resume
-      </div>
-      <div class='download-instruct'>
-        <h5>Downlaod My Resume:</h5>
-        <span class='med_font'>
-          Select a File Format:
+        <li class='col-sm-3' data-ng-repeat='skill in skillsctrl.skills | orderBy:"-percentage"'
+        data-ng-click='searchValue = skill.skillID'>
+        <div class='c100 p{{skill.percentage}} small {{skillsctrl.getColor(skill.percentage)}}'
+        uib-popover="{{skill.description}}"
+        popover-append-to-body='true'
+        popover-title="{{skill.skill}} : {{skill.label}}"
+        popover-trigger="mouseenter">
+        <span>
+          {{skill.label}}
         </span>
-        <ul class='ul-unstyle btn-group'>
-          <li>
-            <div class='btn'
-              ng-model="fileType"
-              uib-btn-radio="'.pdf'"
-              uncheckable>
-              .pdf
-            </div>
-          </li>
-          <li>
-            <div class='btn'
-              ng-model="fileType"
-              uib-btn-radio="'.doc'"
-              uncheckable>
-              .doc
-            </div>
-          </li>
-          <li>
-            <div class='btn'
-            ng-model="fileType"
-            uib-btn-radio="'.txt'"
-            uib-uncheckable="uncheckable">
-              .txt
-            </div>
-          </li>
-        </ul>
-        <span id='no-file-type' ng-if='' class='bg-warning'>{{noFileTypeMessage}}</div>
-        <div class='download btn'
-           ng-click="downloadResume(fileType)">
-          Download
+        <div class='slice'>
+          <div class='bar'></div>
+          <div class='fill'></div>
         </div>
       </div>
-    </div>
+      <!-- <div ang:round:progress data-round-progress-model='skill'></div> -->
+    </li>
+  </ul>
+  <ul class='skill-legend'>
+    <li class='s5'><div class='bar'></div></li>
+    <li class='s4'><div class='bar'></div></li>
+    <li class='s3'><div class='bar'></div></li>
+    <li class='s2'><div class='bar'></div></li>
+    <li class='s1'><div class='bar'></div></li>
+  </ul>
+
+  <!-- <p>
+  <h4>Experience in ...</h4>
+  <ul>
+  <li><b>Web Development:</b> HTML | CSS/SASS | Bootstrap | Javascript | JQuery | Ruby on Rails | AngularJS | D3.js | node.js | PHP | CMS</li>
+  <li><b>Software Development:</b>Java | C | C++ | TruBasic</li>
+  <li><b>UI Development:</b> UI/UX Design | Photoshop | Illustrator | Invision | Moodboard/Storyboard/Mockup</li>
+  <li><b>Version Control:</b> Git | GitHub | Bitbucket</li>
+  <li><b>Development Environments:</b> Heroku | Vagrant | AMPPS</li>
+  <li><b>OS:</b> OSX | Windows | Linux</li>
+  <li>Minor Experience in: Python | Express | Sketch</li>
+</ul>
+</p> -->
+
+</div>
+<div id='resume' class='resume col-sm-3'>
+  <div class='section-title'>My Resume</div>
+  <div class='btn'>
+    View Resume
   </div>
-  <script type="text/ng-template" id="modalErrorMessage.html">
-    <div class="modal-header container-fluid">
-      <div class="col-sm-10 col-sm-offset-1">
-          <h3 class="modal-title">Oops!</h3>
+  <div class='download-instruct'>
+    <h5>Downlaod My Resume:</h5>
+    <span class='med_font'>
+      Select a File Format:
+    </span>
+    <ul class='ul-unstyle btn-group'>
+      <li>
+        <div class='btn'
+        data-ng-model="fileType"
+        uib-btn-radio="'.pdf'"
+        uncheckable>
+        .pdf
       </div>
+    </li>
+    <li>
+      <div class='btn'
+      data-ng-model="fileType"
+      uib-btn-radio="'.doc'"
+      uncheckable>
+      .doc
     </div>
-    <div class="modal-body container-fluid">
-        <div class="col-sm-10 col-sm-offset-1">{{errormessage}}</div>
-    </div>
-    <div class="modal-footer container-fluid">
-      <div class='col-sm-4 col-sm-offset-8'>
-        <button class="btn" ng-click="ok()">OK</button>
-      </div>
-    </div>
-  </script>
-  <script type="text/ng-template" id="resumeModal.html">
-    <div class="modal-header container-fluid">
-      <div class="col-sm-10 col-sm-offset-1">
-          <h3 class="modal-title">Download Resume</h3>
-      </div>
-    </div>
-    <div class="modal-body container-fluid">
-        <div class="col-sm-10 col-sm-offset-1">{{fileType}}</div>
-        <div class="col-sm-10 col-sm-offset-1">
-          <uib-progressbar class="progress-striped active" value="55" type="{{type}}">{{type}} <i ng-show="showWarning">!!! Watch out !!!</i></uib-progressbar>
-        </div>
-        <div class="col-sm-10 col-sm-offset-1">This does not really work right now... Sorry for decieving you.</div>
-    </div>
-    <div class="modal-footer container-fluid">
-      <div class='col-sm-4 col-sm-offset-8'>
-        <button class="btn" ng-click="cancel()">Cancel</button>
-      </div>
-    </div>
-  </script>
+  </li>
+  <li>
+    <div class='btn'
+    data-ng-model="fileType"
+    uib-btn-radio="'.txt'"
+    uib-uncheckable="uncheckable">
+    .txt
+  </div>
+</li>
+</ul>
+<span id='no-file-type' data-ng-if='' class='bg-warning'>{{noFileTypeMessage}}</div>
+  <div class='download btn'
+  data-ng-click="downloadResume(fileType)">
+  Download
+</div>
+</div>
+</div>
+</div>
+<script type="text/data-ng-template" id="modalErrorMessage.html">
+<div class="modal-header container-fluid">
+<div class="col-sm-10 col-sm-offset-1">
+<h3 class="modal-title">Oops!</h3>
+</div>
+</div>
+<div class="modal-body container-fluid">
+<div class="col-sm-10 col-sm-offset-1">{{errormessage}}</div>
+</div>
+<div class="modal-footer container-fluid">
+<div class='col-sm-4 col-sm-offset-8'>
+<button class="btn" data-ng-click="ok()">OK</button>
+</div>
+</div>
+</script>
+<script type="text/data-ng-template" id="resumeModal.html">
+<div class="modal-header container-fluid">
+<div class="col-sm-10 col-sm-offset-1">
+<h3 class="modal-title">Download Resume</h3>
+</div>
+</div>
+<div class="modal-body container-fluid">
+<div class="col-sm-10 col-sm-offset-1">{{fileType}}</div>
+<div class="col-sm-10 col-sm-offset-1">
+<uib-progressbar class="progress-striped active" value="55" type="{{type}}">{{type}} <i data-ng-show="showWarning">!!! Watch out !!!</i></uib-progressbar>
+</div>
+<div class="col-sm-10 col-sm-offset-1">This does not really work right now... Sorry for decieving you.</div>
+</div>
+<div class="modal-footer container-fluid">
+<div class='col-sm-4 col-sm-offset-8'>
+<button class="btn" data-ng-click="cancel()">Cancel</button>
+</div>
+</div>
+</script>
 </div>
 
 <!-- Projects Section -->
-<div id='projects' class='projects section odd row' ng-controller='ProjCtrl as projctrl'>
+<div id='projects' class='projects section odd row' data-ng-controller='ProjCtrl as projctrl'>
   <div class='container'>
     <div class='section-title'>
       Projects
       <form class='search-projects row'>
-        <input id='search-projects' class='col-sm-5 col-sm-offset-3 col-xs-10 search-input' ng-model='searchValue' placeholder='Search Projects'></input>
+        <input id='search-projects' class='col-sm-5 col-sm-offset-3 col-xs-10 search-input' data-ng-model='searchValue' placeholder='Search Projects'></input>
         <button class='col-sm-1 col-xs-2'>Search</button>
       </form>
     </div> <!-- End of section-title -->
 
     <ul id='project-carousel' class='row transformable'
-        ng-class='{"inactive":main.activeProject}'>
-      <li class='col-sm-4'
-          ng-repeat='proj in projctrl.projects | filter:searchValue:projSearchComparator'
-          ng-click='main.activeProject = proj;
-                    main.carousel.index = proj.id-1;
-                    projctrl.selectedImage = proj.images[0];'
-          du-smooth-scroll='project-carousel' du-scrollspy>
-        <div class='project-image-container'>
-          <img src='{{proj.images[0]}}'></img>
-          <div class='project-tag'>
-            <div class='project-title'>{{proj.title}}</div>
-            <div class='project-description'>{{proj.role}}</div>
-          </div>
-        </div>
-      </li>
-    </ul><!-- End All Projects -->
-
-    <div class='carousel-container row transformable'
-          ng-class='{"inactive":!main.activeProject}'>
-      <ul rn-carousel
-          rn-carousel-controls
-          rn-carousel-buffered
-          rn-carousel-index='main.carousel.index'>
-        <li class='col-sm-4'
-            ng-repeat='proj in projctrl.projects | filter:searchValue:projSearchComparator'
-            ng-click='main.activeProject = proj;
-                      main.carousel.index = proj.id-1;
-                      projctrl.selectedImage = proj.images[0]'
-            du-smooth-scroll='project-carousel' du-scrollspy>
-          <div class='project-image-container'
-            ng-class='{"selected-image" : (main.activeProject.id == proj.id)}'>
-            <img src='{{proj.images[0]}}'></img>
-            <div class='project-tag'>
-              <div class='project-title'>{{proj.title}}</div>
-              <div class='project-description'>{{proj.role}}</div>
-            </div>
-          </div>
-        </li>
-      </ul><!-- End Carousel -->
-      <a class="view-more"
-          ng-click='main.activeProject=undefined'
-          du-smooth-scroll='projects' du-scrollspy>
-        View All Projects  <span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span>
-      </a>
-    </div><!-- End Carousel-container -->
-
-    <div id='project' class='project transformable row'
-          ng-class='{"active":main.activeProject}'>
-      <div class='active-project-title'>
-        {{main.activeProject.title}}
-      </div>
-      <div class="active-project-client"
-        ng-if='main.activeProject.client'>
-        <span class='label'>Client:&nbsp;</span>
-        {{main.activeProject.client}}
-      </div>
-      <div class="active-project-role col-xs-12"
-        ng-if='main.activeProject.role'>
-        <span class='label'>Role:&nbsp;</span>
-        {{main.activeProject.role}}
-      </div>
-
-      <div class='row'>
-      <div class='active-project-selected-image col-sm-6 col-sm-offset-3'>
-        <div class='window-top'>
-          <div class='window-opt-circle'></div>
-          <div class='window-opt-circle'></div>
-          <div class='window-opt-circle'></div>
-        </div>
-        <img src='{{projctrl.selectedImage || main.activeProject.images[0]}}'></img>
-      </div>
-
-      <div ng-model="projctrl.selectedImage" class='active-project-images col-sm-1 col-xs-1'>
-        <div class='active-project-image col-sm-12 col-xs-12'
-            ng-repeat='image in main.activeProject.images'
-            ng-click='projctrl.selectedImage = image;'
-            ng-class='{"selected":main.active-project-selected-image-src == image}'
-            value='{{image}}'>
-          <img src='{{image}}'></img>
-        </div>
+    data-ng-class='{"inactive":main.activeProject}'>
+    <li class='col-sm-4'
+    data-ng-repeat='proj in projctrl.projects | filter:searchValue:projSearchComparator'
+    data-ng-click='main.activeProject = proj;
+    main.carousel.index = proj.id-1;
+    projctrl.selectedImage = proj.images[0];'
+    du-smooth-scroll='project-carousel' du-scrollspy>
+    <div class='project-image-container'>
+      <img src='{{proj.images[0]}}'></img>
+      <div class='project-tag'>
+        <div class='project-title'>{{proj.title}}</div>
+        <div class='project-description'>{{proj.role}}</div>
       </div>
     </div>
+  </li>
+</ul><!-- End All Projects -->
 
+<div class='carousel-container row transformable'
+data-ng-class='{"inactive":!main.activeProject}'>
+<ul rn-carousel
+rn-carousel-controls
+rn-carousel-buffered
+rn-carousel-index='main.carousel.index'>
+<li class='col-sm-4'
+data-ng-repeat='proj in projctrl.projects | filter:searchValue:projSearchComparator'
+data-ng-click='main.activeProject = proj;
+main.carousel.index = proj.id-1;
+projctrl.selectedImage = proj.images[0]'
+du-smooth-scroll='project-carousel' du-scrollspy>
+<div class='project-image-container'
+data-ng-class='{"selected-image" : (main.activeProject.id == proj.id)}'>
+<img src='{{proj.images[0]}}'></img>
+<div class='project-tag'>
+  <div class='project-title'>{{proj.title}}</div>
+  <div class='project-description'>{{proj.role}}</div>
+</div>
+</div>
+</li>
+</ul><!-- End Carousel -->
+<a class="view-more"
+data-ng-click='main.activeProject=undefined'
+du-smooth-scroll='projects' du-scrollspy>
+View All Projects  <span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span>
+</a>
+</div><!-- End Carousel-container -->
 
-      <div class='active-project-description col-sm-10 col-sm-offset-1 col-xs-12'>
-        <ul class="ul-unstyle"
-          ng-if='main.activeProject.d'>
-          <li class="active-project-d"
-            ng-repeat='d in main.activeProject.d'>
-              {{d}}
-          </li>
-        </ul>
-        <div class="active-project-skills col-xs-12"
-          ng-if='main.activeProject.skills'>
-          <div ng-repeat='skill in main.activeProject.skills | orderBy:-projctrl.skillsObj.getPercentagebyID'
-            class="skill {{projctrl.skillsObj.getColorbyID(skill)}}"
-            uib-popover=""{{projctrl.skillsObj.getSkill(skill).skill}}""
-            popover-append-to-body='true'
-            popover-title="{{skill.skill}} : {{skill.label}}"
-            popover-trigger="mouseenter">
-            {{skill}}
-          </div>
-        </div>
-        <div class="active-project-text col-xs-12">
-          {{main.activeProject.description}}
-        </div>
-        <div class="active-project-links col-sm-10 col-sm-offset-1 col-xs-12"
-          ng-if='main.activeProject.links'>
-          <div class="active-project-link"
-            ng-repeat='link in main.activeProject.links'>
-              <span class='label'>{{link.label}}:&nbsp;</span>
-              <a href='{{link.url}}'>{{link.url}}</a>
-          </div>
-        </div>
-      </div>
+<div id='project' class='project transformable row'
+data-ng-class='{"active":main.activeProject}'>
+<div class='active-project-title'>
+  {{main.activeProject.title}}
+</div>
+<div class="active-project-client"
+data-ng-if='main.activeProject.client'>
+<span class='label'>Client:&nbsp;</span>
+{{main.activeProject.client}}
+</div>
+<div class="active-project-role col-xs-12"
+data-ng-if='main.activeProject.role'>
+<span class='label'>Role:&nbsp;</span>
+{{main.activeProject.role}}
+</div>
+
+<div class='row'>
+  <div class='active-project-selected-image col-sm-6 col-sm-offset-3'>
+    <div class='window-top'>
+      <div class='window-opt-circle'></div>
+      <div class='window-opt-circle'></div>
+      <div class='window-opt-circle'></div>
     </div>
-
+    <img src='{{projctrl.selectedImage || main.activeProject.images[0]}}'></img>
   </div>
+
+  <div data-ng-model="projctrl.selectedImage" class='active-project-images col-sm-1 col-xs-1'>
+    <div class='active-project-image col-sm-12 col-xs-12'
+    data-ng-repeat='image in main.activeProject.images'
+    data-ng-click='projctrl.selectedImage = image;'
+    data-ng-class='{"selected":main.active-project-selected-image-src == image}'
+    value='{{image}}'>
+    <img src='{{image}}'></img>
+  </div>
+</div>
+</div>
+
+
+<div class='active-project-description col-sm-10 col-sm-offset-1 col-xs-12'>
+  <ul class="ul-unstyle"
+  data-ng-if='main.activeProject.d'>
+  <li class="active-project-d"
+  data-ng-repeat='d in main.activeProject.d'>
+  {{d}}
+</li>
+</ul>
+<div class="active-project-skills col-xs-12"
+data-ng-if='main.activeProject.skills'>
+<div data-ng-repeat='skill in main.activeProject.skills | orderBy:-projctrl.skillsObj.getPercentagebyID'
+class="skill {{projctrl.skillsObj.getColorbyID(skill)}}"
+uib-popover=""{{projctrl.skillsObj.getSkill(skill).skill}}""
+popover-append-to-body='true'
+popover-title="{{skill.skill}} : {{skill.label}}"
+popover-trigger="mouseenter">
+{{skill}}
+</div>
+</div>
+<div class="active-project-text col-xs-12">
+  {{main.activeProject.description}}
+</div>
+<div class="active-project-links col-sm-10 col-sm-offset-1 col-xs-12"
+data-ng-if='main.activeProject.links'>
+<div class="active-project-link"
+data-ng-repeat='link in main.activeProject.links'>
+<span class='label'>{{link.label}}:&nbsp;</span>
+<a href='{{link.url}}'>{{link.url}}</a>
+</div>
+</div>
+</div>
+</div>
+
+</div>
 
 </div>
