@@ -88,7 +88,7 @@
       data-ng-click='main.activeProject = proj; main.carousel.index = proj.id-1'
       du-smooth-scroll='projects' du-scrollspy>
         <div class='project-image-container'>
-          <img src='{{proj.images[0]}}' alt='project image'></img>
+          <img src='{{assets(proj.images[0])}}' alt='project image'></img>
           <div class='project-tag'>
             <div class='project-title'>{{proj.title}}</div>
             <div class='project-description'>{{proj.role}}</div>
@@ -119,7 +119,7 @@
       <div class='profile-socmedia'>
         <a href='{{socmedia.link}}' target='{{socmedia.target}}' data-ng-click='{{socmedia.click}}' data-ng-repeat='socmedia in profile.socialMedia'>
           <div class='socmedia-link'>
-            <img src='{{socmedia.image}}' alt='' />
+            <img src='{{assets(socmedia.image)}}' alt='' />
           </div>
         </a>
       </div>
@@ -264,7 +264,7 @@
         projctrl.selectedImage = proj.images[0];'
       du-smooth-scroll='project-carousel' du-scrollspy>
         <div class='project-image-container'>
-          <img src='{{proj.images[0]}}'></img>
+          <img src='{{assets(proj.images[0])}}'></img>
           <div class='project-tag'>
             <div class='project-title'>{{proj.title}}</div>
             <div class='project-description'>{{proj.role}}</div>
@@ -289,7 +289,7 @@
         du-smooth-scroll='project-carousel' du-scrollspy>
           <div class='project-image-container'
           data-ng-class='{"selected-image" : (main.activeProject.id == proj.id)}'>
-            <img src='{{proj.images[0]}}'></img>
+            <img src='{{assets(proj.images[0])}}'></img>
             <div class='project-tag'>
               <div class='project-title'>{{proj.title}}</div>
               <div class='project-description'>{{proj.role}}</div>
@@ -328,7 +328,7 @@
             <div class='window-opt-circle'></div>
             <div class='window-opt-circle'></div>
           </div>
-          <img src='{{projctrl.selectedImage || main.activeProject.images[0]}}'></img>
+          <img src='{{assets(projctrl.selectedImage || main.activeProject.images[0])}}'></img>
         </div>
 
         <div data-ng-model="projctrl.selectedImage" class='active-project-images col-sm-1 col-xs-1'>
@@ -337,7 +337,7 @@
           data-ng-click='projctrl.selectedImage = image;'
           data-ng-class='{"selected":main.active-project-selected-image-src == image}'
           value='{{image}}'>
-            <img src='{{image}}'></img>
+            <img src='{{assets(image)}}'></img>
           </div>
         </div>
       </div>

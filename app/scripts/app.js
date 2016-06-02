@@ -50,6 +50,7 @@ angular
   })
   .value('duScrollDuration', 2000)
   .value('duScrollOffset', 50)
+  .value('windowhref', window.location.href)
   .run(['$anchorScroll', function($anchorScroll) {
     $anchorScroll.yOffset = 50;   // always scroll by 50 extra pixels
   }]);

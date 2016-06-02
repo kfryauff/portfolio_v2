@@ -28,6 +28,10 @@
 				$('input#search-projects').value = query;
 			};
 
+			$scope.assets = function(fileString) {
+				return window.location.href + fileString;
+			};
+
 			// Donwload Resume
 			$scope.downloadResume = function (fileType) {
 				$scope.fileType = fileType;
