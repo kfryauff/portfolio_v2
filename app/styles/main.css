@@ -6710,23 +6710,40 @@ ul {
       float: right;
       color: white; }
 
-.input-group {
+.contactMe .input-group {
   width: 100%; }
-
-.input-group-addon {
+.contactMe .input-group-addon {
   width: 95px;
   text-align: right; }
+.contactMe .err-label {
+  position: absolute;
+  z-index: 5;
+  top: 10px;
+  right: 10px;
+  color: white;
+  font-weight: 300;
+  border: 1px rgba(149, 0, 0, 0.51) solid; }
+.contactMe .input-group-addon {
+  border: 1px solid black;
+  border-right: none;
+  border-radius: 0;
+  background-color: rgba(0, 0, 0, 0.03); }
+.contactMe .input-group .form-control:last-child {
+  border: 1px solid black;
+  border-radius: 0; }
+.contactMe .input-group {
+  margin: 5px 0px; }
 
 .landing {
-  background-image: url("../images/landing_bg.png");
+  background-image: url("../assets/images/landing_bg.png");
   background-repeat: no-repeat;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
   background-color: #122553;
-  padding-top: 112.5px;
-  padding-bottom: 90px; }
+  padding-top: 135px;
+  padding-bottom: 112.5px; }
   .landing .card {
     background: rgba(0, 0, 0, 0.5);
     border: 1.5px white solid;
@@ -6890,6 +6907,12 @@ ul {
   .project .skill.s5 {
     background-color: #0d02ff; }
 
+.download-instruct {
+  position: relative; }
+  .download-instruct #resume-select-file-type {
+    padding: 10px 5px;
+    margin: 5px 0; }
+
 .feature-projects, .projects {
   overflow: hidden; }
   .feature-projects .project-image-container, .projects .project-image-container {
@@ -6931,7 +6954,9 @@ ul {
       .feature-projects ul li img, .projects ul li img {
         object-fit: cover;
         -webkit-filter: grayscale(1);
-        filter: grayscale(1); }
+        filter: grayscale(1);
+        width: 100%;
+        height: 100%; }
       .feature-projects ul li .project-tag, .projects ul li .project-tag {
         position: absolute;
         background-color: rgba(255, 255, 255, 0.7);
@@ -6973,10 +6998,11 @@ ul {
       overflow: hidden; }
 
 .projects {
-  padding-bottom: 40px; }
+  padding-bottom: 40px;
+  min-height: 95vh; }
 
 .project {
-  padding: 10px 0;
+  padding: 10px 0 20px;
   text-align: center;
   background-color: white;
   overflow: hidden; }
@@ -6989,13 +7015,14 @@ ul {
   .project .active-project-selected-image {
     overflow: hidden;
     padding-right: 0;
-    height: 315px; }
+    height: 425px; }
     .project .active-project-selected-image img {
-      width: 100%; }
+      max-width: 100%;
+      max-height: 100%; }
   .project .active-project-images {
     padding-left: 0;
     margin-top: 22px;
-    height: 276px;
+    height: 400px;
     overflow: scroll; }
   .project .active-project-image {
     overflow: hidden;

@@ -7,11 +7,11 @@
 
 	// projects.js
 	angular.module('portfolioApp')
-		.controller('SkillsCtrl', ['skills', function (skills) {
+		.controller('SkillsCtrl', ['skills', 'resumeLoc', function (skills, resumeLoc) {
 
 			this.skills = skills.skills;
       this.getColor = skills.getColor;
-
+			this.resumeLoc = resumeLoc;
 		}]);
 
 }());

@@ -55,6 +55,8 @@
 				object-fit: cover;
 				-webkit-filter: grayscale(1);
 				filter: grayscale(1);
+				width: 100%;
+				height: 100%;
 			}	// End img
 			.project-tag {
 				position: absolute;
@@ -115,10 +117,11 @@
 	}
 }	// End .projects, .feature-projects
 .projects {
-	padding-bottom: $margin * 4;
+	padding-bottom: $margin*4.0;
+	min-height: 95vh;
 }
 .project {
-	padding: $padding 0;
+	padding: $padding 0 $padding*2.0;
 	text-align: center;
 	background-color: $white_opaque;
 	overflow: hidden;
@@ -138,15 +141,16 @@
 	.active-project-selected-image {
 		overflow: hidden;
 		padding-right: 0;
-		height: 315px;
+		height: 425px;
 		img {
-			width: 100%;
+			max-width: 100%;
+			max-height: 100%;
 		}
 	}
 	.active-project-images {
 		padding-left: 0;
 		margin-top: 22px;
-		height: 276px;
+		height: 400px;
 		overflow: scroll;
 	}
 	.active-project-image {

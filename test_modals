@@ -1,0 +1,100 @@
+<!-- Contact Me Modal -->
+<script type="text/ng-template" id="contactMe.html">
+  <div class="contactMe">
+    <div class="modal-header container-fluid">
+      <div class="col-sm-10 col-sm-offset-1">
+        <h3 class="modal-title">Get in Touch</h3>
+      </div>
+    </div>
+
+    <!-- Messages -->
+    <div id='successmessages' class='alert alert-success' data-ng-show='successmessages' data-ng-bind='successmessages'></div>
+    <div id='errmessages' class='alert alert-danger' data-ng-show='errmessages' data-ng-bind='errmessages'></div>
+    <div data-ng-show='progress.active()' class='alert alert-warning'>Sending&hellip;</div>
+
+    <form name='contactForm' novalidate role='form'>
+      <div class='modal-body container-fluid'>
+        <div class='col-sm-10 col-sm-offset-1'>
+          <!-- Input Name -->
+          <div class='input-group'>
+            <label class='input-group-addon' for='name'>Your Name</label>
+            <span class='label label-danger err-label' data-ng-show='submitted && contactForm.name.$error.required'>Required!</span>
+            <input type='text' name='name' data-ng-model='name' placeholder="Your Name" class='form-control' required />
+          </div>
+          <!-- Input E-mail -->
+          <div class='input-group'>
+            <label class='input-group-addon' for='email'>Your Email</label>
+            <span class='label label-danger err-label' data-ng-show='submitted && contactForm.email.$error.required'>Required!</span>
+            <span class='label label-danger err-label' data-ng-show='submitted && contactForm.$error.email'>Invalid email!</span>
+            <input type='email' name='email' data-ng-model='email' placeholder='your@email.com' class='form-control' required>
+          </div>
+          <!-- Input Subject -->
+          <div class='input-group'>
+            <label class='input-group-addon' for='subject'>Subject</label>
+            <span class='label label-danger err-label' data-ng-show='submitted && contactForm.subject.$error.required'>Required!</span>
+            <input type='text' name='subject' data-ng-model='subject' placeholder='Message Subject' class='form-control' required>
+          </div>
+          <!-- Input Message -->
+          <div class='input-group'>
+            <span class='label label-danger err-label' data-ng-show='submitted && contactForm.message.$error.required'>Message Blank!</span>
+            <textarea rows='5' name='message' data-ng-model='message' placeholder='Enter your message here...' class='form-control' required></textarea>
+          </div>
+        </div>
+      </div>
+
+      <div class='modal-footer container-fluid'>
+        <div class='col-sm-2 col-sm-offset-7'>
+          <button class='btn' data-ng-click='cancel()'>Cancel</span></button>
+        </div>
+        <div class='col-sm-2'>
+          <button class='btn' data-ng-disabled='progress.active()' data-ng-click='submit(contactForm)'>Send <span class='glyphicon glyphicon-send' aria-hidden='true'></span></button>
+        </div>
+      </div>
+    </form>
+  </div>
+
+
+</script>
+<!-- End Contact Me Modal -->
+
+<!-- ErrorMessage Modal -->
+<script type="text/ng-template" id="modalErrorMessage.html">
+  <div class="modal-header container-fluid">
+    <div class="col-sm-10 col-sm-offset-1">
+      <h3 class="modal-title">Oops!</h3>
+    </div>
+  </div>
+  <div class="modal-body container-fluid">
+    <div class="col-sm-10 col-sm-offset-1">{{errormessage}}</div>
+  </div>
+  <div class="modal-footer container-fluid">
+    <div class='col-sm-4 col-sm-offset-8'>
+      <button class="btn" data-ng-click="ok()">OK</button>
+    </div>
+  </div>
+</script>
+<!-- End ErrorMessage Modal -->
+
+<!-- resumeModal Modal -->
+<script type="text/ng-template" id="resumeModal.html">
+  <div class="modal-header container-fluid">
+    <div class="col-sm-10 col-sm-offset-1">
+      <h3 class="modal-title">Download Resume</h3>
+    </div>
+  </div>
+  <div class="modal-body container-fluid">
+    <div class="col-sm-10 col-sm-offset-1">{{fileType}}</div>
+    <div class="col-sm-10 col-sm-offset-1">
+      <uib-progressbar class="progress-striped active" value="55" type="{{type}}">
+        {{type}} <i data-ng-show="showWarning">!!! Watch out !!!</i>
+      </uib-progressbar>
+    </div>
+    <div class="col-sm-10 col-sm-offset-1">This does not really work right now... Sorry for decieving you.</div>
+  </div>
+      <div class="modal-footer container-fluid">
+      <div class='col-sm-4 col-sm-offset-8'>
+      <button class="btn" data-ng-click="cancel()">Cancel</button>
+    </div>
+  </div>
+</script>
+<!-- End resumeModal Modal -->

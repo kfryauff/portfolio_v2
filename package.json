@@ -42,5 +42,9 @@
   },
   "scripts": {
     "test": "grunt test"
+  },
+  "dependencies": {
+    "express": "^4.13.4",
+    "nodemailer": "^2.4.2"
   }
 }

@@ -1,11 +1,11 @@
 .landing {
-	background-image: url('../images/landing_bg.png');// no-repeat center center fixed;
+	background-image: $landing_img; // no-repeat center center fixed;
 	background-repeat: no-repeat;
 
 	@include background-size(cover);
 	background-color: rgb(18, 37, 83);
-	padding-top: 1.25 * $header_height;
-	padding-bottom: $header_height;
+	padding-top: 1.5 * $header_height;
+	padding-bottom: 1.25 * $header_height;
 
 	.card {
 		background: $black_translucent;

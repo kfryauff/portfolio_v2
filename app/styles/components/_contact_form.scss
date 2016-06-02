@@ -1,8 +1,36 @@
-.input-group {
-  width:100%;
-}
+.contactMe {
+  .input-group {
+    width:100%;
+  }
 
-.input-group-addon {
-  width: 95px;
-  text-align: right;
+  .input-group-addon {
+    width: 95px;
+    text-align: right;
+  }
+
+  .err-label {
+    position: absolute;
+    z-index: 5;
+    top: 10px;
+    right: 10px;
+    color: $white_opaque;
+    font-weight: 300;
+    border: 1px rgba(149, 0, 0, 0.51) solid;
+  }
+
+  .input-group-addon {
+    border: 1px solid $black_opaque;
+    border-right: none;
+    border-radius: 0;
+    background-color: rgba(0, 0, 0, 0.03);
+  }
+
+  .input-group .form-control:last-child {
+    border: 1px solid $black_opaque;
+    border-radius: 0;
+  }
+
+  .input-group {
+    margin: 5px 0px;
+  }
 }
