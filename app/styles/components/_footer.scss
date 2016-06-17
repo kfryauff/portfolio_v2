@@ -27,5 +27,17 @@
 			float: right;
 			color: $white_opaque;
 		}
+
+		@media (max-width: 450px) {
+			min-height: 0px;
+			padding: 5px 0;
+			ul.footer-content {
+				display: none;
+			}
+			.cpy {
+				font-size: 10px;
+			}
+		}
+
 	}
 }

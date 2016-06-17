@@ -6646,6 +6646,10 @@ ul {
     background-image: -o-linear-gradient(top, black, rgba(0, 0, 0, 0.8));
     background-image: linear-gradient(to bottom, black, rgba(0, 0, 0, 0.8));
     filter: progid:DXImageTransform.Microsoft.gradient(start-colourStr='black', end-colourStr='rgba(0, 0, 0, 0.8)'); }
+    .header .navbar .navbar-toggle {
+      width: auto; }
+      .header .navbar .navbar-toggle > span.icon-bar {
+        background-color: white; }
     .header .navbar .navbar-header a {
       color: white; }
     .header .navbar .navbar-header .navbar-brand {
@@ -6679,6 +6683,9 @@ ul {
     .header .navbar .nav .open > a, .header .navbar .nav .open > a:hover, .header .navbar .nav .open > a:focus {
       background: black;
       border-color: transparent; }
+    .header .navbar .navbar-collapse .navbar-nav {
+      float: none;
+      text-align: enter; }
 
 .footer {
   margin-bottom: 0px;
@@ -6709,6 +6716,14 @@ ul {
     .footer .navbar .contact {
       float: right;
       color: white; }
+    @media (max-width: 450px) {
+      .footer .navbar {
+        min-height: 0px;
+        padding: 5px 0; }
+        .footer .navbar ul.footer-content {
+          display: none; }
+        .footer .navbar .cpy {
+          font-size: 10px; } }
 
 .contactMe .input-group {
   width: 100%; }
@@ -6757,6 +6772,12 @@ ul {
         letter-spacing: 1px;
         position: absolute;
         bottom: 0; }
+        @media (max-width: 995px) {
+          .landing .card .card-top .card-name {
+            font-size: 32px; } }
+        @media (max-width: 450px) {
+          .landing .card .card-top .card-name {
+            font-size: 25px; } }
       .landing .card .card-top .card-info {
         font-size: 10px;
         font-weight: 300;
@@ -6824,6 +6845,8 @@ ul {
     margin-bottom: 10px;
     margin-left: -20px;
     margin-right: -20px; }
+.about-me .content {
+  padding-top: 15px; }
 
 #skills ul {
   padding-left: 20px;
@@ -6919,7 +6942,8 @@ ul {
     width: 100%;
     height: 100%;
     overflow: hidden;
-    position: relative; }
+    position: relative;
+    border: 1px solid whitesmoke; }
     .feature-projects .project-image-container.selected-image, .projects .project-image-container.selected-image {
       border: 5px solid #242526; }
   .feature-projects .section-title .search-projects, .projects .section-title .search-projects {
@@ -6996,6 +7020,9 @@ ul {
     .feature-projects .carousel-container.inactive, .projects .carousel-container.inactive {
       display: none;
       overflow: hidden; }
+  @media (max-width: 450px) {
+    .feature-projects .featured-project, .projects .featured-project {
+      height: 100px; } }
 
 .projects {
   padding-bottom: 40px;
@@ -7024,6 +7051,8 @@ ul {
     margin-top: 22px;
     height: 400px;
     overflow: scroll; }
+    .project .active-project-images::-webkit-scrollbar {
+      display: none; }
   .project .active-project-image {
     overflow: hidden;
     padding-left: 0;

@@ -29,7 +29,9 @@
 			};
 
 			$scope.assets = function(fileString) {
-				return window.location.href + fileString;
+				// if (typeof location.origin === 'undefined')
+    		// 	location.origin = location.protocol + '//' + location.host;
+				return location.origin + '/' + fileString;
 			};
 
 			// Donwload Resume

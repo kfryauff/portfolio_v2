@@ -1,1 +1,38 @@
-<p>This is the about view.</p>
+<div id='about' class='about-me section odd row'>
+  <div class='container'>
+    <div class='section-title'>About Me</div>
+    <div class='profile col-sm-4'>
+      <div class='profile-pic'><img src='{{profile.image}}'></div>
+      <div class='profile-name'>{{profile.name}}</div>
+      <div class='profile-tagline'>
+        <span>{{profile.tag}}</span>
+        <br />
+        <span>Bay Area, CA, USA</span>
+      </div>
+      <div class='profile-socmedia'>
+        <a href='{{socmedia.link}}' target='{{socmedia.target}}' data-ng-click='{{socmedia.click}}' data-ng-repeat='socmedia in profile.socialMedia'>
+          <div class='socmedia-link'>
+            <img src='{{assets(socmedia.image)}}' alt='' />
+          </div>
+        </a>
+      </div>
+      <hr>
+      <div class='profile-lastupdate'>Profile last updated {{updatedDate}}</div>
+    </div>
+    <div class='content col-sm-8'>
+      <p>
+        My name is Krista Fryauff. I have spent my undergraduate years at Stanford University combining Computer Science with a concentration in Human Computer Interaction and a minor in Comparative Studies in Race and Ethnicity. I am both passionate and curious about the many ways in which technology and society interact and am excited to explore new arenas and expand my knowledge of technology and development.
+      </p>
+      <br>
+      <p>
+        <h4>My Experience</h4>
+        I've worn many hats in various adventures often combining interdisciplinary areas of study to push the boundaries between technology and people. Most recently, I worked as a Mobile Web Developer at a mobile solutions startup, transforming desktop sites of clients like Peet's, Epson, and Bigotires, into adapted and optimized mobile experiences. I have also redesigned websites in the Military/government sphere, providing updates to their interface design and user experience. I've developed a data visualization for a Stanford affiliated geospatial history lab where I was involved in the project from ideation to production with singular control over the code.  Additionally, I spent my time in the Navy ROTC developing leadership skills for better, more efficient and communicative work styles. I've learned to pick things up quickly, keep an open mind, and indulge a healthy dosage of good-natured curiosity.
+      </p>
+      <br>
+      <p>
+        <h4>Where my interests have led me...</h4>
+        I'm constantly looking to push my understanding to new levels and take on new challenges.  I'm very interested in UI/UX development as well as application/software engineering.  Additionally, as my specialty in HCI &amp; my minor in CSRE suggest, I've got a passion for the intersection of technology, invention/innovation and community/society.
+      </p>
+    </div>
+  </div>
+</div>

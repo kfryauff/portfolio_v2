@@ -21,6 +21,12 @@
 				letter-spacing: 1px;
 				position: absolute;
 				bottom: 0;
+				@media (max-width: 995px) {
+					font-size: 32px;
+				}
+				@media (max-width: 450px) {
+					font-size: 25px;
+				}
 			}
 			.card-info {
 				font-size: 10px;

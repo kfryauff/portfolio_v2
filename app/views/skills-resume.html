@@ -1,0 +1,98 @@
+<div class='skills-resume section row' data-ng-controller='SkillsCtrl as skillsctrl'>
+  <div class='container'>
+    <!-- Skills Section -->
+    <div id='skills' class='skills col-sm-9'>
+      <div class='section-title'>My Skills</div>
+      <ul class='skill-legend'>
+        <li class='s5'><div class='bar'></div></li>
+        <li class='s4'><div class='bar'></div></li>
+        <li class='s3'><div class='bar'></div></li>
+        <li class='s2'><div class='bar'></div></li>
+        <li class='s1'><div class='bar'></div></li>
+      </ul>
+
+      <ul class='row'>
+        <li class='col-sm-3' data-ng-repeat='skill in skillsctrl.skills | orderBy:"-percentage"'
+        data-ng-click='main.searchValue = skill.skillID' ng-click='searchProjects({{skill.skillID}})'
+        du-smooth-scroll='projects' du-scrollspy>
+          <div class='c100 p{{skill.percentage}} small {{skillsctrl.getColor(skill.percentage)}}'
+          uib-popover="{{skill.description}}"
+          popover-append-to-body='true'
+          popover-title="{{skill.skill}} : {{skill.label}}"
+          popover-trigger="mouseenter">
+            <span>
+              {{skill.label}}
+            </span>
+            <div class='slice'>
+              <div class='bar'></div>
+              <div class='fill'></div>
+            </div>
+          </div>
+        </li>
+      </ul>
+      <ul class='skill-legend'>
+        <li class='s5'><div class='bar'></div></li>
+        <li class='s4'><div class='bar'></div></li>
+        <li class='s3'><div class='bar'></div></li>
+        <li class='s2'><div class='bar'></div></li>
+        <li class='s1'><div class='bar'></div></li>
+      </ul>
+
+      <!-- <p>
+      <h4>Experience in ...</h4>
+      <ul>
+      <li><b>Web Development:</b> HTML | CSS/SASS | Bootstrap | Javascript | JQuery | Ruby on Rails | AngularJS | D3.js | node.js | PHP | CMS</li>
+      <li><b>Software Development:</b>Java | C | C++ | TruBasic</li>
+      <li><b>UI Development:</b> UI/UX Design | Photoshop | Illustrator | Invision | Moodboard/Storyboard/Mockup</li>
+      <li><b>Version Control:</b> Git | GitHub | Bitbucket</li>
+      <li><b>Development Environments:</b> Heroku | Vagrant | AMPPS</li>
+      <li><b>OS:</b> OSX | Windows | Linux</li>
+      <li>Minor Experience in: Python | Express | Sketch</li>
+      </ul>
+      </p> -->
+
+    </div>
+
+    <!-- Resume Section -->
+    <div id='resume' class='resume col-sm-3'>
+      <div class='section-title'>My Resume</div>
+      <div class='download-instruct'>
+        <h4 id='resume-select-file-type' class='med_font col-sm-12'>
+          Select a File Format:
+        </h4>
+        <ul class='ul-unstyle btn-group'>
+          <li>
+            <div class='btn'
+            data-ng-model="fileType"
+            uib-btn-radio="'.pdf'"
+            uncheckable>
+              .pdf
+            </div>
+          </li>
+          <li>
+            <div class='btn'
+            data-ng-model="fileType"
+            uib-btn-radio="'.doc'"
+            uncheckable>
+              .doc
+            </div>
+          </li>
+          <li>
+            <div class='btn'
+            data-ng-model="fileType"
+            uib-btn-radio="'.txt'"
+            uib-uncheckable="uncheckable">
+              .txt
+            </div>
+          </li>
+        </ul>
+        <span id='no-file-type' data-ng-if='' class='bg-warning'>{{noFileTypeMessage}}</span>
+        <div class='download btn'
+        data-ng-click="downloadResume(fileType)">
+          View Resume <span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span>
+        </div>
+        <a id='downloadResumeLink' href='{{skillsctrl.resumeLoc + fileType}}' target='_blank' class='hidden'>Download Resume {{skillsctrl.resumeLoc}}</a>
+      </div>
+    </div>
+  </div>
+</div>

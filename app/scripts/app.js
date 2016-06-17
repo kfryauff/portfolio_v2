@@ -36,16 +36,37 @@ angular
         controller: 'MainCtrl',
         controllerAs: 'main'
       })
-      // .when('/about', {
-      //   templateUrl: 'views/about.html',
-      //   controller: 'AboutCtrl',
-      //   controllerAs: 'about'
-      // })
+      .when('/landing', {
+        templateUrl: 'views/landing.html',
+        controller: 'MainCtrl',
+        controllerAs: 'main'
+      })
+      .when('/about', {
+        templateUrl: 'views/about.html',
+        controller: 'MainCtrl',
+        controllerAs: 'main'
+      })
+      .when('/featured', {
+        templateUrl: 'views/featured.html',
+        controller: 'MainCtrl',
+        controllerAs: 'main'
+      })
+      .when('/projects', {
+        templateUrl: 'views/projects.html',
+        controller: 'MainCtrl',
+        controllerAs: 'main'
+      })
+      .when('/skills-resume', {
+        templateUrl: 'views/skills-resume.html',
+        controller: 'MainCtrl',
+        controllerAs: 'main'
+      })
       .otherwise({
         redirectTo: '/'
       });
 
-      $locationProvider.html5Mode(true);
+      // $locationProvider.html5Mode(true);
+      // $locationProvider.hashPrefix('!');
 
   })
   .value('duScrollDuration', 2000)

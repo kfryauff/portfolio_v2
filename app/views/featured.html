@@ -1,0 +1,22 @@
+<div id='featured' class='feature-projects section row' data-ng-controller='ProjCtrl as projctrl'>
+  <div class='container'>
+    <ul class='row'>
+      <li class='featured-project col-xs-4' data-ng-repeat='proj in projctrl.featProjects'
+      data-ng-click='main.activeProject = proj; main.carousel.index = proj.id-1'
+      du-smooth-scroll='projects' du-scrollspy>
+        <div class='project-image-container'>
+          <img src='{{assets(proj.images[0])}}' alt='project image'></img>
+          <div class='project-tag'>
+            <div class='project-title'>{{proj.title}}</div>
+            <div class='project-description'>{{proj.role}}</div>
+          </div>
+        </div>
+      </li>
+    </ul>
+    <a class="view-more"
+    data-ng-click='main.activeProject=undefined'
+    du-smooth-scroll='projects' du-scrollspy>
+      View All Projects <span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span>
+    </a>
+  </div>
+</div>

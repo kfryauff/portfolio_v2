@@ -6,6 +6,7 @@
 		height: 100%;
 		overflow: hidden;
 		position: relative;
+		border: 1px solid rgb(245, 245, 245);
 		&.selected-image {
 			border: 5px solid $warm-gray;
 		}
@@ -115,6 +116,13 @@
 
 		}
 	}
+
+
+	@media (max-width: 450px) {
+		.featured-project {
+			height: 100px;
+		}
+	}
 }	// End .projects, .feature-projects
 .projects {
 	padding-bottom: $margin*4.0;
@@ -152,6 +160,10 @@
 		margin-top: 22px;
 		height: 400px;
 		overflow: scroll;
+
+		&::-webkit-scrollbar {
+		  display: none;
+		}
 	}
 	.active-project-image {
 		overflow: hidden;

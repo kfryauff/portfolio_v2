@@ -3,6 +3,12 @@
 	margin-bottom: 0px;
 	.navbar {
 		@include bg-gradient-tb(rgba(0, 0, 0, 1.0), rgba(0, 0, 0, 0.8));
+		.navbar-toggle {
+			width: auto;
+			& > span.icon-bar {
+				background-color: $white_opaque;
+			}
+		}
 		.navbar-header {
 			a { color: $white_opaque; }
 			.navbar-brand {
@@ -53,6 +59,13 @@
 		.nav .open > a, .nav .open > a:hover, .nav .open > a:focus {
 			background: $black_opaque;
 			border-color: transparent;
+		}
+
+		.navbar-collapse {
+			.navbar-nav {
+				float: none;
+				text-align: enter;
+			}
 		}
 	}
 }

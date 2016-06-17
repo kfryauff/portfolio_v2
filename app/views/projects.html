@@ -1,0 +1,132 @@
+<div id='projects' class='projects section odd row' data-ng-controller='ProjCtrl as projctrl'>
+  <div class='container'>
+    <div class='section-title'>
+      Projects
+      <form class='search-projects row'>
+        <input id='search-projects' class='col-sm-5 col-sm-offset-3 col-xs-10 search-input' data-ng-model='main.searchValue' placeholder='Search Projects'></input>
+        <button id='search-btn' class='col-sm-1 col-xs-2' data-ng-click='main.activeProject=undefined'>Search</button>
+      </form>
+    </div> <!-- End of section-title -->
+
+    <ul id='project-carousel' class='row transformable'
+    data-ng-class='{"inactive":main.activeProject}'>
+      <li class='col-sm-4'
+      data-ng-repeat='proj in filteredProjects = (projctrl.projects | filter:main.searchValue:projSearchComparator)'
+      data-ng-click='main.activeProject = proj;
+        main.carousel.index = proj.id-1;
+        projctrl.selectedImage = proj.images[0];'
+      du-smooth-scroll='project-carousel' du-scrollspy>
+        <div class='project-image-container'>
+          <img src='{{assets(proj.images[0])}}'></img>
+          <div class='project-tag'>
+            <div class='project-title'>{{proj.title}}</div>
+            <div class='project-description'>{{proj.role}}</div>
+          </div>
+        </div>
+      </li>
+    </ul><!-- End All Projects -->
+    <!-- If No Projects -->
+    <div ng-show="!filteredProjects.length">Sorry, no projects matching your search query are currently available.</div>
+
+    <div class='carousel-container row transformable'
+    data-ng-class='{"inactive":!main.activeProject}'>
+      <ul rn-carousel
+      rn-carousel-controls
+      rn-carousel-buffered
+      rn-carousel-index='main.carousel.index'>
+        <li class='col-sm-4'
+        data-ng-repeat='proj in projctrl.projects | filter:main.searchValue:projSearchComparator'
+        data-ng-click='main.activeProject = proj;
+        main.carousel.index = proj.id-1;
+        projctrl.selectedImage = proj.images[0]'
+        du-smooth-scroll='project-carousel' du-scrollspy>
+          <div class='project-image-container'
+          data-ng-class='{"selected-image" : (main.activeProject.id == proj.id)}'>
+            <img src='{{assets(proj.images[0])}}'></img>
+            <div class='project-tag'>
+              <div class='project-title'>{{proj.title}}</div>
+              <div class='project-description'>{{proj.role}}</div>
+            </div>
+          </div>
+        </li>
+      </ul><!-- End Carousel -->
+
+      <a class="view-more"
+      data-ng-click='main.activeProject=undefined; main.searchValue="";'
+      du-smooth-scroll='projects' du-scrollspy>
+        View All Projects  <span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span>
+      </a>
+    </div><!-- End Carousel-container -->
+
+    <div id='project' class='project transformable row'
+    data-ng-class='{"active":main.activeProject}'>
+      <div class='active-project-title'>
+        {{main.activeProject.title}}
+      </div>
+      <div class="active-project-client"
+      data-ng-if='main.activeProject.client'>
+        <span class='label'>Client:&nbsp;</span>
+        {{main.activeProject.client}}
+      </div>
+      <div class="active-project-role col-xs-12"
+      data-ng-if='main.activeProject.role'>
+        <span class='label'>Role:&nbsp;</span>
+        {{main.activeProject.role}}
+      </div>
+
+      <div class='row'>
+        <div class='active-project-selected-image col-sm-8 col-sm-offset-2'>
+          <div class='window-top'>
+            <div class='window-opt-circle'></div>
+            <div class='window-opt-circle'></div>
+            <div class='window-opt-circle'></div>
+          </div>
+          <img src='{{assets(projctrl.selectedImage || main.activeProject.images[0])}}'></img>
+        </div>
+
+        <div data-ng-model="projctrl.selectedImage" class='active-project-images col-sm-1 col-xs-1'>
+          <div class='active-project-image col-sm-12 col-xs-12'
+          data-ng-repeat='image in main.activeProject.images'
+          data-ng-click='projctrl.selectedImage = image;'
+          data-ng-class='{"selected":main.active-project-selected-image-src == image}'
+          value='{{image}}'>
+            <img src='{{assets(image)}}'></img>
+          </div>
+        </div>
+      </div>
+
+      <div class='active-project-description col-sm-10 col-sm-offset-1 col-xs-12'>
+        <ul class="ul-unstyle"
+        data-ng-if='main.activeProject.d'>
+          <li class="active-project-d"
+          data-ng-repeat='d in main.activeProject.d'>
+            {{d}}
+          </li>
+        </ul>
+        <div class="active-project-skills col-xs-12"
+        data-ng-if='main.activeProject.skills'>
+          <div data-ng-repeat='skill in main.activeProject.skills | orderBy:-projctrl.skillsObj.getPercentagebyID'
+          data-ng-click='main.searchValue = skill.skillID'
+          class="skill {{projctrl.skillsObj.getColorbyID(skill)}}"
+          uib-popover="{{projctrl.skillsObj.getSkill(skill).skill}}"
+          popover-append-to-body='true'
+          popover-title="{{skill.skill}} : {{skill.label}}"
+          popover-trigger="mouseenter">
+            {{skill}}
+          </div>
+        </div>
+        <div class="active-project-text col-xs-12">
+          {{main.activeProject.description}}
+        </div>
+        <div class="active-project-links col-sm-10 col-sm-offset-1 col-xs-12"
+        data-ng-if='main.activeProject.links'>
+          <div class="active-project-link"
+          data-ng-repeat='link in main.activeProject.links'>
+            <span class='label'>{{link.label}}:&nbsp;</span>
+            <a href='{{link.url}}'>{{link.url}}</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
