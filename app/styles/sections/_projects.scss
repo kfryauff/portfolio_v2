@@ -62,7 +62,7 @@
 			.project-tag {
 				position: absolute;
 				background-color: $white_translucent;
-				@include bg-gradient-tb($white_translucent, $white_opaque);
+				@include bg-gradient-tb(transparent, $white_opaque);
 				bottom: 0;
 				left: 0;
 				right: 0;
@@ -117,13 +117,8 @@
 		}
 	}
 
-
-	@media (max-width: 450px) {
-		.featured-project {
-			height: 100px;
-		}
-	}
 }	// End .projects, .feature-projects
+
 .projects {
 	padding-bottom: $margin*4.0;
 	min-height: 95vh;
@@ -217,5 +212,44 @@
 		background-color: $window-opt-bg;
 		float: left;
 		margin-left: 5px;
+	}
+}
+
+
+@media (max-width: $screen-xs-max) {
+	.feature-projects {
+		padding: 0;
+
+		ul {
+			min-height: 120px;
+		}
+
+		li.featured-project {
+			height: 100px;
+			padding: 0;
+		}
+
+		ul li .project-tag {
+			max-height: 50px;
+			overflow: hidden;
+			font-size: 10px;
+			padding: 5px;
+		}
+	}
+
+	.projects {
+		padding-left: 5px;
+		padding-right: 5px;
+
+		#project-carousel {
+			li {
+				padding: 1px;
+			}
+
+			.project-tag {
+				max-height: 50px;
+				overflow: hidden;
+			}
+		}
 	}
 }

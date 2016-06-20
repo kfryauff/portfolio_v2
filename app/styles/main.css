@@ -6492,7 +6492,7 @@ button.close {
 
 .rn-carousel-controls {
   position: relative;
-  top: -112.5px; }
+  top: -90px; }
   .rn-carousel-controls .rn-carousel-control {
     background-color: #242526;
     color: white;
@@ -6584,8 +6584,8 @@ ul {
     min-height: 10px; }
 
 .section {
-  padding-top: 20px;
-  padding-bottom: 20px; }
+  padding-top: 50px;
+  padding-bottom: 50px; }
   .section .section-title {
     padding-bottom: 10px; }
   .section.odd {
@@ -6635,6 +6635,10 @@ ul {
 .label {
   color: #929292;
   text-transform: uppercase; }
+
+@media (max-width: 450px) {
+  .xxs-hide {
+    display: none; } }
 
 .header {
   margin-bottom: 0px; }
@@ -6772,7 +6776,7 @@ ul {
         letter-spacing: 1px;
         position: absolute;
         bottom: 0; }
-        @media (max-width: 995px) {
+        @media (max-width: 991px) {
           .landing .card .card-top .card-name {
             font-size: 32px; } }
         @media (max-width: 450px) {
@@ -6984,13 +6988,13 @@ ul {
       .feature-projects ul li .project-tag, .projects ul li .project-tag {
         position: absolute;
         background-color: rgba(255, 255, 255, 0.7);
-        background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0.7)), to(white));
-        background-image: -webkit-linear-gradient(top, rgba(255, 255, 255, 0.7), white);
-        background-image: -moz-linear-gradient(top, rgba(255, 255, 255, 0.7), white);
-        background-image: -ms-linear-gradient(top, rgba(255, 255, 255, 0.7), white);
-        background-image: -o-linear-gradient(top, rgba(255, 255, 255, 0.7), white);
-        background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.7), white);
-        filter: progid:DXImageTransform.Microsoft.gradient(start-colourStr='rgba(255, 255, 255, 0.7)', end-colourStr='white');
+        background-image: -webkit-gradient(linear, left top, left bottom, from(transparent), to(white));
+        background-image: -webkit-linear-gradient(top, transparent, white);
+        background-image: -moz-linear-gradient(top, transparent, white);
+        background-image: -ms-linear-gradient(top, transparent, white);
+        background-image: -o-linear-gradient(top, transparent, white);
+        background-image: linear-gradient(to bottom, transparent, white);
+        filter: progid:DXImageTransform.Microsoft.gradient(start-colourStr='transparent', end-colourStr='white');
         bottom: 0;
         left: 0;
         right: 0;
@@ -7020,9 +7024,6 @@ ul {
     .feature-projects .carousel-container.inactive, .projects .carousel-container.inactive {
       display: none;
       overflow: hidden; }
-  @media (max-width: 450px) {
-    .feature-projects .featured-project, .projects .featured-project {
-      height: 100px; } }
 
 .projects {
   padding-bottom: 40px;
@@ -7093,5 +7094,28 @@ ul {
     background-color: #242526;
     float: left;
     margin-left: 5px; }
+
+@media (max-width: 767px) {
+  .feature-projects {
+    padding: 0; }
+    .feature-projects ul {
+      min-height: 120px; }
+    .feature-projects li.featured-project {
+      height: 100px;
+      padding: 0; }
+    .feature-projects ul li .project-tag {
+      max-height: 50px;
+      overflow: hidden;
+      font-size: 10px;
+      padding: 5px; }
+
+  .projects {
+    padding-left: 5px;
+    padding-right: 5px; }
+    .projects #project-carousel li {
+      padding: 1px; }
+    .projects #project-carousel .project-tag {
+      max-height: 50px;
+      overflow: hidden; } }
 
 /*# sourceMappingURL=main.css.map */

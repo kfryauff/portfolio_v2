@@ -118,8 +118,8 @@ ul {
 }
 
 .section {
-  padding-top: $spacing;
-  padding-bottom: $spacing;
+  padding-top: $spacing * 2.5;
+  padding-bottom: $spacing * 2.5;
   .section-title {
     @extend .h3;
     padding-bottom: $padding;
@@ -190,6 +190,12 @@ button {
 .label {
   color: $label_color;
   text-transform: uppercase;
+}
+
+.xxs-hide {
+  @media (max-width: $screen-xxs-max) {
+    display: none;
+  }
 }
 
 @import 'components/header';

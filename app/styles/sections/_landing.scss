@@ -21,10 +21,10 @@
 				letter-spacing: 1px;
 				position: absolute;
 				bottom: 0;
-				@media (max-width: 995px) {
+				@media (max-width: $screen-sm-max) {
 					font-size: 32px;
 				}
-				@media (max-width: 450px) {
+				@media (max-width: $screen-xxs-max) {
 					font-size: 25px;
 				}
 			}

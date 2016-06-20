@@ -29,7 +29,7 @@ angular
     'ajoslin.promise-tracker',
 
   ])
-  .config(function ($routeProvider, $locationProvider) {
+  .config(function ($routeProvider) { //, $locationProvider) {
     $routeProvider
       .when('/', {
         templateUrl: 'views/main.html',
@@ -70,7 +70,7 @@ angular
 
   })
   .value('duScrollDuration', 2000)
-  .value('duScrollOffset', 50)
+  .value('duScrollOffset', 10)
   .value('windowhref', window.location.href)
   .run(['$anchorScroll', function($anchorScroll) {
     $anchorScroll.yOffset = 50;   // always scroll by 50 extra pixels

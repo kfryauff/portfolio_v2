@@ -28,7 +28,7 @@
 			color: $white_opaque;
 		}
 
-		@media (max-width: 450px) {
+		@media (max-width: $screen-xxs-max) {
 			min-height: 0px;
 			padding: 5px 0;
 			ul.footer-content {

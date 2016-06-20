@@ -10,7 +10,7 @@
 
     <ul id='project-carousel' class='row transformable'
     data-ng-class='{"inactive":main.activeProject}'>
-      <li class='col-sm-4'
+      <li class='col-sm-4 col-xs-6'
       data-ng-repeat='proj in filteredProjects = (projctrl.projects | filter:main.searchValue:projSearchComparator)'
       data-ng-click='main.activeProject = proj;
         main.carousel.index = proj.id-1;
@@ -34,7 +34,7 @@
       rn-carousel-controls
       rn-carousel-buffered
       rn-carousel-index='main.carousel.index'>
-        <li class='col-sm-4'
+        <li class='col-sm-4 col-xs-6'
         data-ng-repeat='proj in projctrl.projects | filter:main.searchValue:projSearchComparator'
         data-ng-click='main.activeProject = proj;
         main.carousel.index = proj.id-1;
@@ -58,6 +58,8 @@
       </a>
     </div><!-- End Carousel-container -->
 
+
+
     <div id='project' class='project transformable row'
     data-ng-class='{"active":main.activeProject}'>
       <div class='active-project-title'>
@@ -75,7 +77,7 @@
       </div>
 
       <div class='row'>
-        <div class='active-project-selected-image col-sm-8 col-sm-offset-2'>
+        <div class='active-project-selected-image col-sm-8 col-sm-offset-2 col-xs-10 col-xs-offset-1'>
           <div class='window-top'>
             <div class='window-opt-circle'></div>
             <div class='window-opt-circle'></div>
@@ -84,8 +86,8 @@
           <img src='{{assets(projctrl.selectedImage || main.activeProject.images[0])}}'></img>
         </div>
 
-        <div data-ng-model="projctrl.selectedImage" class='active-project-images col-sm-1 col-xs-1'>
-          <div class='active-project-image col-sm-12 col-xs-12'
+        <div data-ng-model="projctrl.selectedImage" class='active-project-images col-sm-1 col-xs-1  col-xs-10 col-xs-offset-1'>
+          <div class='active-project-image col-sm-12 col-xs-1'
           data-ng-repeat='image in main.activeProject.images'
           data-ng-click='projctrl.selectedImage = image;'
           data-ng-class='{"selected":main.active-project-selected-image-src == image}'

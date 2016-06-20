@@ -29,8 +29,11 @@
 			};
 
 			$scope.assets = function(fileString) {
-				// if (typeof location.origin === 'undefined')
-    		// 	location.origin = location.protocol + '//' + location.host;
+				if (typeof location.origin === 'undefined') {
+					location.origin = location.protocol + '//' + location.host;
+				}
+
+				// return location.origin + fileString;
 				return location.origin + '/' + fileString;
 			};
 
