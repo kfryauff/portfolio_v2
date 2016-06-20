@@ -6687,9 +6687,10 @@ ul {
     .header .navbar .nav .open > a, .header .navbar .nav .open > a:hover, .header .navbar .nav .open > a:focus {
       background: black;
       border-color: transparent; }
-    .header .navbar .navbar-collapse .navbar-nav {
-      float: none;
-      text-align: enter; }
+    @media (max-width: 768px) {
+      .header .navbar .navbar-collapse .navbar-nav {
+        float: none;
+        text-align: center; } }
 
 .footer {
   margin-bottom: 0px;
@@ -7116,6 +7117,23 @@ ul {
       padding: 1px; }
     .projects #project-carousel .project-tag {
       max-height: 50px;
-      overflow: hidden; } }
+      overflow: hidden; }
+    .projects .carousel-container ul[rn-carousel] li {
+      max-width: 50%; }
+
+  .project .active-project-selected-image {
+    height: 80vw;
+    padding: 0; }
+  .project .active-project-images {
+    height: auto;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    overflow-x: hidden scroll; }
+  .project .active-project-image {
+    padding: 0;
+    height: 10vw; }
+    .project .active-project-image img {
+      max-height: 100%;
+      width: auto; } }
 
 /*# sourceMappingURL=main.css.map */

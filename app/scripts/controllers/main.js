@@ -29,12 +29,20 @@
 			};
 
 			$scope.assets = function(fileString) {
-				if (typeof location.origin === 'undefined') {
-					location.origin = location.protocol + '//' + location.host;
+				var origin = '';
+
+				if (typeof location.origin === 'undefined' || location.origin.includes('web.stanford')) {
+					origin = location.protocol + '//' + location.host;
+				} else {
+					origin = location.origin;
+				}
+
+				if(location.origin.includes('web.stanford')) {
+					origin += location.pathname;
 				}
 
 				// return location.origin + fileString;
-				return location.origin + '/' + fileString;
+				return origin + '/' + fileString;
 			};
 
 			// Donwload Resume

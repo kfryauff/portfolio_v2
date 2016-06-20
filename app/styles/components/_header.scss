@@ -61,10 +61,12 @@
 			border-color: transparent;
 		}
 
-		.navbar-collapse {
-			.navbar-nav {
-				float: none;
-				text-align: enter;
+		@media (max-width: $screen-sm-min) {
+			.navbar-collapse {
+				.navbar-nav {
+					float: none;
+					text-align: center;
+				}
 			}
 		}
 	}

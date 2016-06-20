@@ -1,11 +1,6 @@
-DocumentRoot /~kfryauff/cgi-bin/test/
-
+Options +FollowSymLinks
 RewriteEngine On
-
-# Don't rewrite files or directories
-RewriteCond %{REQUEST_FILENAME} -f [OR]
-RewriteCond %{REQUEST_FILENAME} -d
-RewriteRule ^ - [L]
-
-# Rewrite everything else to index.html to allow html5 state links
-RewriteRule ^ index.html [L]
+RewriteCond %{HTTP_HOST} web.stanford.edu [NC]
+RewriteCond %{HTTP_HOST} ~kfryauff
+RewriteCond %{HTTP_HOST} !index.html
+RewriteRule ^(.*)$ http://web.stanford.edu/~kfryauff/index.html [R=301,L]

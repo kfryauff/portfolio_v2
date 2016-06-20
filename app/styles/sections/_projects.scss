@@ -251,5 +251,32 @@
 				overflow: hidden;
 			}
 		}
+
+		.carousel-container ul[rn-carousel] li {
+			max-width: 50%;
+		}
+	}
+
+	.project {
+		.active-project-selected-image {
+			height: 80vw;
+			padding: 0;
+		}
+
+		.active-project-images {
+			height: auto;
+			margin-top: 5px;
+			margin-bottom: 15px;
+			overflow-x: hidden scroll;
+		}
+
+		.active-project-image {
+			padding: 0;
+			height: 10vw;
+			img {
+				max-height: 100%;
+				width: auto;
+			}
+		}
 	}
 }

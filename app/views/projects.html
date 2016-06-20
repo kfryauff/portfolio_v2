@@ -28,6 +28,7 @@
     <!-- If No Projects -->
     <div ng-show="!filteredProjects.length">Sorry, no projects matching your search query are currently available.</div>
 
+    <!-- Carousel : viewable upon selecting an active project, updates on search -->
     <div class='carousel-container row transformable'
     data-ng-class='{"inactive":!main.activeProject}'>
       <ul rn-carousel
@@ -59,9 +60,11 @@
     </div><!-- End Carousel-container -->
 
 
-
+    <!-- Active Project: -->
     <div id='project' class='project transformable row'
     data-ng-class='{"active":main.activeProject}'>
+
+      <!-- Active Project Title and Information -->
       <div class='active-project-title'>
         {{main.activeProject.title}}
       </div>
@@ -76,6 +79,7 @@
         {{main.activeProject.role}}
       </div>
 
+      <!-- Active Project Images -->
       <div class='row'>
         <div class='active-project-selected-image col-sm-8 col-sm-offset-2 col-xs-10 col-xs-offset-1'>
           <div class='window-top'>
@@ -86,8 +90,8 @@
           <img src='{{assets(projctrl.selectedImage || main.activeProject.images[0])}}'></img>
         </div>
 
-        <div data-ng-model="projctrl.selectedImage" class='active-project-images col-sm-1 col-xs-1  col-xs-10 col-xs-offset-1'>
-          <div class='active-project-image col-sm-12 col-xs-1'
+        <div data-ng-model="projctrl.selectedImage" class='active-project-images col-sm-1 col-xs-10 col-xs-offset-1'>
+          <div class='active-project-image col-sm-12 col-xs-2'
           data-ng-repeat='image in main.activeProject.images'
           data-ng-click='projctrl.selectedImage = image;'
           data-ng-class='{"selected":main.active-project-selected-image-src == image}'
